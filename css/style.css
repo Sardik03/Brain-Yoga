@@ -881,6 +881,26 @@ footer {
   .test-grid {
     flex-direction: column;
   }
+
+  .founder-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+}
+
+/* Founder Card Layout (About Us) */
+.founder-card {
+  background-color: var(--color-purple-dark);
+  color: var(--color-white);
+  border-radius: 16px;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+  box-shadow: var(--box-shadow);
 }
 
 /* About Page Ideology Section */
