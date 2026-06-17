@@ -120,4 +120,36 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // --- Mobile Menu Toggle ---
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            
+            // Toggle hamburger icon between bars and times (X)
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                if (navLinks.classList.contains('active')) {
+                    icon.className = 'fa-solid fa-xmark';
+                } else {
+                    icon.className = 'fa-solid fa-bars';
+                }
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.className = 'fa-solid fa-bars';
+                }
+            }
+        });
+    }
 });
