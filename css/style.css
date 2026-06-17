@@ -802,13 +802,18 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .note-parents {
+  .note-parents,
+  .note-parents .container {
     flex-direction: column;
   }
 
   .note-image {
     min-height: 250px;
     width: 100%;
+  }
+
+  .note-content {
+    padding: 2.5rem 1.5rem;
   }
 
   .footer-grid {
