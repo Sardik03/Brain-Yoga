@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | Brain Yoga</title>
+    <meta name="description"
+        content="Frequently Asked Questions about Brain Yoga Classes. Find answers for students, parents, and teachers.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .faq-section {
+            margin-bottom: 4rem;
+        }
+
+        .faq-category-title {
+            color: var(--color-purple-dark);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--color-purple-light);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .accordion {
+            background-color: var(--color-white);
+            color: #4a4a4a;
+            cursor: pointer;
+            padding: 1.5rem;
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion.active,
+        .accordion:hover {
+            background-color: var(--color-purple-primary);
+            color: var(--color-white);
+            box-shadow: 0 4px 8px rgba(94, 53, 177, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .accordion:after {
+            content: '\f107';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--color-purple-primary);
+            float: right;
+            margin-left: 5px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .accordion.active:after,
+        .accordion:hover:after {
+            color: var(--color-white);
+        }
+
+        .accordion.active:after {
+            transform: rotate(180deg);
+        }
+
+        .panel {
+            padding: 0 1.5rem;
+            background-color: #fdfdfd;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-radius: 0 0 8px 8px;
+            margin-top: -12px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-top: none;
+            box-shadow: inset 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        }
+
+        .panel p {
+            padding: 1.5rem 0;
+            margin: 0;
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .panel p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.5rem;
+            bottom: 1.5rem;
+            width: 3px;
+            background-color: var(--color-purple-primary);
+            border-radius: 2px;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html" class="active">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background-color: var(--color-purple-dark); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem;">FREQUENTLY ASKED QUESTIONS</h1>
+            <p style="color: var(--color-cream); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Everything you
+                need to know about Brain Yoga Classes.</p>
+        </div>
+    </section><!-- FAQs Section -->
+    <section class="section" style="padding: 4rem 0; background-color: var(--color-cream);">
+        <div class="container faq-container">
+
+            <!-- Student FAQs -->
+            <div class="faq-section">
+                <h2 class="faq-category-title"><i class="fa-solid fa-user-graduate" style="margin-right: 10px;"></i>
+                    Student FAQs</h2>
+
+                <button class="accordion">Are handwriting and calligraphy taught separately?</button>
+                <div class="panel">
+                    <p>Yes, handwriting and calligraphy are different courses and are taught with proper practice.</p>
+                </div>
+
+                <button class="accordion">Can I join more than one course at the same time?</button>
+                <div class="panel">
+                    <p>Yes, students can join multiple classes like tuition, abacus or handwriting together.</p>
+                </div>
+
+                <button class="accordion">Can I choose my batch timing?</button>
+                <div class="panel">
+                    <p>Yes, you can choose timing depending on seat availability.</p>
+                </div>
+
+                <button class="accordion">Are classes held daily or weekly?</button>
+                <div class="panel">
+                    <p>Classes are held regularly as per the course schedule.</p>
+                </div>
+
+                <button class="accordion">Do you give extra practice for difficult subjects?</button>
+                <div class="panel">
+                    <p>Yes, extra practice is given so students can understand topics better.</p>
+                </div>
+
+                <button class="accordion">Do you teach tricks for faster calculation?</button>
+                <div class="panel">
+                    <p>Yes, both Abacus and Vedic maths classes help improve speed and accuracy.</p>
+                </div>
+
+                <button class="accordion">In which language are classes taught?</button>
+                <div class="panel">
+                    <p>Classes are taught in simple Hindi and English for easy understanding.</p>
+                </div>
+
+                <button class="accordion">Are the classes helpful for competitive exams?</button>
+                <div class="panel">
+                    <p>Yes, Vedic Maths and English are available for students preparing to appear in competitive exams.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Parent FAQs -->
+            <div class="faq-section">
+                <h2 class="faq-category-title"><i class="fa-solid fa-users" style="margin-right: 10px;"></i> Parent FAQs
+                </h2>
+
+                <button class="accordion">Do you provide a demo class before admission?</button>
+                <div class="panel">
+                    <p>Yes, one demo class is available for all programs.</p>
+                </div>
+
+                <button class="accordion">Are the batches small or large?</button>
+                <div class="panel">
+                    <p>All batches are small with limited students so individual attention is given to each child.</p>
+                </div>
+
+                <button class="accordion">Is daycare available daily?</button>
+                <div class="panel">
+                    <p>Yes, daycare is available with study time, meals, rest and proper care.</p>
+                </div>
+
+                <button class="accordion">Are there different timings for different classes?</button>
+                <div class="panel">
+                    <p>Yes, each program has different timings so students can join according to their school schedule.
+                    </p>
+                </div>
+
+                <button class="accordion">Are classes only for studies or for skill development also?</button>
+                <div class="panel">
+                    <p>Both academic subjects and skill-based programs are available for overall development.</p>
+                </div>
+
+                <button class="accordion">Do you provide homework support?</button>
+                <div class="panel">
+                    <p>Yes, we help students with their regular school homework during both normal classes and daycare.
+                    </p>
+                </div>
+
+                <button class="accordion">Which age-group students can enroll in Brain Yoga Classes?</button>
+                <div class="panel">
+                    <p>Students aged 4+ years and above can enroll for Brain Yoga Classes programmes.</p>
+                </div>
+
+                <button class="accordion">Do Brain Yoga Classes accept admissions throughout the year?</button>
+                <div class="panel">
+                    <p>Yes, we are open for admissions throughout the year depending on the batch's seat availability.
+                    </p>
+                </div>
+
+                <button class="accordion">How can I take admission?</button>
+                <div class="panel">
+                    <p>You can visit our centre, call/message on +91 98184 23645 or email us at
+                        brainyogaclassroom@gmail.com.</p>
+                </div>
+
+                <button class="accordion">What if my child cannot learn at the same speed as others?</button>
+                <div class="panel">
+                    <p>We keep small batches so every student gets personal attention and can learn at their own pace
+                        without any hurry.</p>
+                </div>
+
+                <button class="accordion">How do you track student progress in class?</button>
+                <div class="panel">
+                    <p>We take weekly tests, assessments and give regular progress updates to parents to ensure proper
+                        improvement.</p>
+                </div>
+            </div>
+
+            <!-- Teacher FAQs -->
+            <div class="faq-section">
+                <h2 class="faq-category-title"><i class="fa-solid fa-chalkboard-user" style="margin-right: 10px;"></i>
+                    Teacher FAQs</h2>
+
+                <button class="accordion">Can interns or fresh graduates apply for teaching positions?</button>
+                <div class="panel">
+                    <p>Yes, interns and fresh graduates can apply if they have good subject knowledge and an interest in
+                        teaching.</p>
+                </div>
+
+                <button class="accordion">How can I apply for a teaching position at Brain Yoga Classes?</button>
+                <div class="panel">
+                    <p>You can send your resume to our WhatsApp or email at brainyogaclassroom@gmail.com</p>
+                </div>
+
+                <button class="accordion">What qualities do you look for in teachers?</button>
+                <div class="panel">
+                    <p>We prefer calm, patient teachers who believe in practical and engaging teaching methods not rote
+                        learning.</p>
+                </div>
+
+                <button class="accordion">Are flexible timings available for teachers?</button>
+                <div class="panel">
+                    <p>Yes, timings are flexible depending on batches and class schedule.</p>
+                </div>
+
+                <button class="accordion">Is this an online or offline teaching job?</button>
+                <div class="panel">
+                    <p>All classes are conducted offline at our centre; there are no online classes.</p>
+                </div>
+
+                <button class="accordion">Is there a dress code for teachers?</button>
+                <div class="panel">
+                    <p>No dress code, teachers can wear anything they are comfortable in.</p>
+                </div>
+
+                <button class="accordion">Are holidays given on festivals?</button>
+                <div class="panel">
+                    <p>Yes, classes remain closed on major festivals like Diwali, Holi, Independence Day and others.</p>
+                </div>
+
+                <button class="accordion">Do teachers get a week off?</button>
+                <div class="panel">
+                    <p>Saturday and Sunday are both off, but the schedule can change if the regular classes are missed.
+                    </p>
+                </div>
+
+                <button class="accordion">Can teachers handle more than one course?</button>
+                <div class="panel">
+                    <p>Yes, teachers can take multiple classes if they are comfortable.</p>
+                </div>
+
+                <button class="accordion">How will I know if there is a vacancy for teachers?</button>
+                <div class="panel">
+                    <p>You can send your resume via email and we will contact you if required.</p>
+                </div>
+
+                <button class="accordion">Are teachers expected to handle small children also?</button>
+                <div class="panel">
+                    <p>Yes, teachers should be comfortable teaching different age groups.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i> 
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="mailto:brainyogaclassroom@gmail.com" class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank" class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                // Toggle active state
+                this.classList.toggle("active");
+
+                // Toggle panel visibility
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

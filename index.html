@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Yoga | The Best Learning Center for Kids</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles for full content */
+        .full-text-box {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .ideology-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .ideology-pill {
+            background-color: var(--color-purple-light);
+            color: var(--color-purple-dark);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .ideology-pill:hover {
+            transform: translateY(-3px);
+            background-color: var(--color-purple-primary);
+            color: var(--color-white);
+        }
+
+        /* Improved Testimonials slider */
+        .testimonials {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .test-grid-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 20px;
+            padding-bottom: 15px;
+            /* Hide scrollbar for cleaner look */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .test-grid-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .test-grid-scroll .test-item {
+            min-width: 280px;
+            scroll-snap-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <blockquote>"The best learning happens when children don’t even realize they’re being taught."</blockquote>
+            <div class="quote-author">
+                <span>~Sumaan Rastogi</span>
+                <span style="font-size: 0.85rem;">Founder, Brain Yoga Classes</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-primary">Book a Demo Class</a>
+                <a href="about.html" class="btn btn-white">Get Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Are We Box -->
+    <section class="who-are-we">
+        <div class="container">
+            <div class="full-text-box">
+                <h2 class="section-title" style="margin-bottom: 1rem;">WHO ARE WE</h2>
+                <p class="intro-text"
+                    style="color: var(--color-text); font-size: 1.15rem; line-height: 1.8; max-width: 900px; margin: 0 auto;">
+                    Brain Yoga is the best learning center you have been looking for. Above all boredom, our space is
+                    where children strengthen not just their academic abilities but also build creative thinking through
+                    specially designed programs that enhance numerical thinking, language confidence, creative
+                    expression, mindfulness, and fine motor skills.<br><br>
+                    Our goal is to help students develop essential learning that supports their scholastic growth while
+                    discovering their true potential.
+                </p>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>YEARS EXPERIENCE INSTRUCTORS</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1:5</h3>
+                    <p>TEACHER STUDENT RATIO</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Students Mentored</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Skill Development Programs</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-child-reaching" style="font-size: 1.8rem;"></i>
+                    <p>DAYCARE SUPPORT</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-brain" style="font-size: 1.8rem;"></i>
+                    <p>MENTAL WELLNESS</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fa-solid fa-shapes" style="font-size: 1.8rem;"></i>
+                    <p>ACTIVITY-BASED LEARNING</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A Note To Parents -->
+    <section class="note-parents">
+        <div class="container">
+            <div class="note-image">
+                <!-- Placeholder matching Canva design -->
+            </div>
+            <div class="note-content">
+                <h2>A NOTE TO PARENTS</h2>
+                <p>Every child learns differently.</p>
+                <p>Some need more time, some need more practice, some need more patience.</p>
+                <p>At Brain Yoga, we teach slowly, correctly and with discipline so that learning stays for life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Ideology -->
+    <section class="ideology" style="padding-bottom: 2rem;">
+        <div class="container">
+            <h2 class="section-title">OUR IDEOLOGY</h2>
+            <div class="text-center">
+                <!-- Representation of the Lotus flower diagram -->
+                <img src="images/diagram.png" alt="Ideology Diagram"
+                    style="max-width: 700px; width: 100%; margin: 0 auto; display: block;" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Programmes / Flip Cards -->
+    <section class="ideology" style="background-color: var(--color-cream); padding-top: 4rem;">
+        <div class="container">
+            <h2 class="section-title">PROGRAMMES</h2>
+
+            <div class="cards-grid">
+                <!-- Abacus -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/abacus.png" alt="Abacus">
+                            <div class="card-title">ABACUS</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>ABACUS</h3>
+                            <p>Improve concentration, faster calculation skills, and stronger memory from an early age.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vedic Maths -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/vedic_maths.png" alt="Vedic Maths">
+                            <div class="card-title">VEDIC MATHS</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>VEDIC MATHS</h3>
+                            <p>Ancient Indian techniques that help solve complex calculations quickly without lengthy steps.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hindi Classes -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/hindi.png" alt="Hindi Classes">
+                            <div class="card-title">HINDI CLASSES</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>HINDI CLASSES</h3>
+                            <p>We teach Hindi in a way that feels simple and natural. Read, write, and understand step by step.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Handwriting Improvement -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/handwriting.png" alt="Handwriting Improvement">
+                            <div class="card-title">HANDWRITING IMPROVEMENT</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>HANDWRITING</h3>
+                            <p>Learn how letters should sit on the line, how much space to leave, and write clearly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Public Speaking -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/public_speaking.png" alt="Public Speaking">
+                            <div class="card-title">PUBLIC SPEAKING</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>PUBLIC SPEAKING</h3>
+                            <p>Helping children speak normally and confidently in everyday situations and on stage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tuition Classes -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/tuition.png" alt="Tuition Classes">
+                            <div class="card-title">TUITION CLASSES</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>TUITION CLASSES</h3>
+                            <p>Individual attention for every child. We explain concepts until they are fully understood.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spoken English -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/spoken_english.png" alt="Spoken English">
+                            <div class="card-title">SPOKEN ENGLISH</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>SPOKEN ENGLISH</h3>
+                            <p>Learn and understand how to use the English language naturally in daily life without mistakes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Art & Craft -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/art_craft.png" alt="Art & Craft">
+                            <div class="card-title">ART & CRAFT</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>ART & CRAFT</h3>
+                            <p>Develop thinking, imagination, and expression through structured drawing and coloring.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personality Development -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/personality.png" alt="Personality Development">
+                            <div class="card-title">PERSONALITY DEVELOPMENT</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>PERSONALITY DEV</h3>
+                            <p>Focus on daily behaviour, communication, and thinking to become more confident in real life.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calligraphy -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/calligraphy.png" alt="Calligraphy">
+                            <div class="card-title">CALLIGRAPHY</div>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>CALLIGRAPHY</h3>
+                            <p>Developing discipline, attention, and creativity while learning beautiful lettering styles.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Inside the classroom -->
+    <section class="gallery" style="background-color: var(--color-white); padding: 3rem 0;">
+        <div class="container">
+            <h2 class="section-title">INSIDE THE CLASSROOM</h2>
+            <div class="gallery-strip" style="justify-content: center; flex-wrap: wrap; gap: 20px;">
+                <img src="images/classroom1.jpg" alt="Class Activity"
+                    style="width: 250px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: var(--box-shadow); transition: transform 0.3s ease;">
+                <img src="images/classroom2.png" alt="Group Activity"
+                    style="width: 250px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: var(--box-shadow); transition: transform 0.3s ease;">
+                <img src="images/classroom3.png" alt="Why Choose Brain Yoga"
+                    style="width: 250px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: var(--box-shadow); transition: transform 0.3s ease;">
+                <img src="images/classroom4.jpg" alt="Toddler Play & Learning"
+                    style="width: 250px; height: 180px; object-fit: cover; border-radius: 8px; box-shadow: var(--box-shadow); transition: transform 0.3s ease;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Testimonials -->
+    <section class="split-section" style="background-color: var(--color-cream);">
+        <div class="container split-grid">
+            <div class="why-us">
+                <h2 style="color: var(--color-purple-primary); font-size: 2rem; margin-bottom: 1.5rem;">WHY CHOOSE US
+                </h2>
+                <ul class="features-list">
+                    <li><i class="fa-solid fa-check"></i> Multi-Skill Learning Center</li>
+                    <li><i class="fa-solid fa-check"></i> Regular Progress Updates</li>
+                    <li><i class="fa-solid fa-check"></i> Age-Wise Programs</li>
+                    <li><i class="fa-solid fa-check"></i> Free Extra Practice Sessions</li>
+                    <li><i class="fa-solid fa-check"></i> Course Completion Certificate</li>
+                    <li><i class="fa-solid fa-check"></i> Special Workshops & Camps</li>
+                    <li><i class="fa-solid fa-check"></i> Demo Class Available</li>
+                </ul>
+            </div>
+
+            <div class="testimonials">
+                <h2>Brain Yoga Learners</h2>
+                <div class="test-grid-scroll">
+                    <!-- Testimonial 1 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"My son joined only for Abacus, but we saw such good improvement in focus
+                            that later we enrolled him in Vedic Maths also. The difference is clearly visible. Teachers
+                            really work on the basics."</p>
+                        <p class="test-author">Priti Malhotra</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"Very nice environment, small batches and proper attention. Along with
+                            studies they also work on personality development and speaking skills which I liked a lot."
+                        </p>
+                        <p class="test-author">Rahul Bansal</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"Joined handwriting class for my son even though his writing was okay, but
+                            now it is much neater. He even started calligraphy and learned a few basic styles."</p>
+                        <p class="test-author">Kunal Jain</p>
+                    </div>
+                    <!-- Testimonial 4 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"My son joined for maths tuition here. Slowly, his interest came back;
+                            earlier he used to avoid doing sums. Now he sits on his own, which is a big change for us."
+                        </p>
+                        <p class="test-author">Ruchi Sharma</p>
+                    </div>
+                    <!-- Testimonial 5 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"The daycare facility is really helpful for us as working parents. My son
+                            never used to eat fruits at home, but here Suman ma’am made him habitual of eating healthy
+                            snacks daily. Big relief for us."</p>
+                        <p class="test-author">Anjali Mehra</p>
+                    </div>
+                    <!-- Testimonial 6 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"We were very stressed about our child’s school performance. After joining
+                            tuition and Abacus here, his marks slowly improved and even his school teacher has noticed
+                            and appreciated the progress."</p>
+                        <p class="test-author">Rohit Gupta</p>
+                    </div>
+                    <!-- Testimonial 7 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"My son used to fumble a lot while speaking English. We tried other spoken
+                            English classes also, but after almost a year, I can clearly see better pronunciation and
+                            confidence."</p>
+                        <p class="test-author">Pooja Saini</p>
+                    </div>
+                    <!-- Testimonial 8 -->
+                    <div class="test-item">
+                        <div class="test-stars">★★★★★</div>
+                        <p class="test-text">"Hindi was always difficult for my daughter because of matra and spelling.
+                            With Suman ma’am’s help, she is now reading and writing much better and even speaks more
+                            fluently."</p>
+                        <p class="test-author">Kavita Sharma</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps to Success -->
+    <section class="steps" style="padding: 2rem 0; background-color: var(--color-white);">
+        <div class="container" style="text-align: center;">
+            <img src="images/steps-to-success.png" alt="Steps to Success"
+                style="max-width: 700px; width: 100%; height: auto; border-radius: 12px; margin: 0 auto; box-shadow: var(--box-shadow);">
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Want to see how classes are conducted?</h2>
+            <p>Book a demo and experience the learning yourself.</p>
+            <div class="hero-buttons" style="justify-content: center; margin-top: 20px;">
+                <a href="contact.html" class="btn btn-primary" style="background-color: var(--color-purple-dark);">Book
+                    Demo</a>
+                <a href="about.html" class="btn btn-white">Get Info</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i> 
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="mailto:brainyogaclassroom@gmail.com" class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank" class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

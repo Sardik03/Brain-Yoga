@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions | Brain Yoga</title>
+    <meta name="description"
+        content="Apply for admissions at Brain Yoga Learning Center. We offer Abacus, Vedic Maths, Hindi, Handwriting, Tuition and more.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .form-container {
+            background-color: var(--color-white);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-purple-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-purple-primary);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+        }
+
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"],
+        .checkbox-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--color-purple-primary);
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--color-purple-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--color-purple-dark);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html" class="active">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background-color: var(--color-purple-dark); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem;">ADMISSIONS</h1>
+            <p style="color: var(--color-cream); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Take the first
+                step towards a better learning experience for your child.</p>
+        </div>
+    </section>
+
+    <!-- Admission Form Section -->
+    <section class="section" style="padding: 4rem 0; background-color: var(--color-cream);">
+        <div class="container">
+            <div class="form-container">
+                <h2 style="text-align: center; color: var(--color-purple-dark); margin-bottom: 2rem; font-size: 2rem;">
+                    Application Form</h2>
+                <form action="https://formsubmit.co/brainyogaclassroom@gmail.com" method="POST" id="admissionForm">
+                    <!-- FormSubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Admission Application - Brain Yoga">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <div class="form-group">
+                        <label class="form-label">Student Name</label>
+                        <input type="text" name="Student_Name" class="form-control"
+                            placeholder="Enter student's full name" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Student Age</label>
+                            <input type="number" name="Student_Age" class="form-control" placeholder="e.g. 7" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Class / Grade</label>
+                            <input type="text" name="Class_or_Grade" class="form-control" placeholder="e.g. 2nd Grade"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">School Name</label>
+                        <input type="text" name="School_Name" class="form-control" placeholder="Enter school name"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Parent Name</label>
+                        <input type="text" name="Parent_Name" class="form-control"
+                            placeholder="Enter parent's full name" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Contact Number (WhatsApp Preferred)</label>
+                            <input type="tel" name="Contact_Number" class="form-control" placeholder="+91 XXXXX XXXXX"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email ID</label>
+                            <input type="email" name="Email_ID" class="form-control" placeholder="your@email.com"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label class="form-label"
+                            style="font-size: 1.2rem; border-bottom: 2px solid var(--color-cream); padding-bottom: 0.5rem; margin-bottom: 1rem;">What
+                            are you looking to improve in your child?</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item"><input type="checkbox" name="Improvement_Areas[]"
+                                    value="Maths Skills"> Improve Maths Skills</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Improvement_Areas[]"
+                                    value="Concentration"> Increase Concentration</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Improvement_Areas[]"
+                                    value="Confidence">
+                                Build Confidence</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Improvement_Areas[]"
+                                    value="Handwriting"> Handwriting Improvement</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Improvement_Areas[]"
+                                    value="Language">
+                                Language</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Improvement_Areas[]"
+                                    value="Brain Development"> Overall Brain Development</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label class="form-label"
+                            style="font-size: 1.2rem; border-bottom: 2px solid var(--color-cream); padding-bottom: 0.5rem; margin-bottom: 1rem;">Which
+                            programs are you interested in?</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Abacus">
+                                Abacus</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Vedic Maths"> Vedic Maths</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Hindi Classes"> Hindi Classes</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Handwriting"> Handwriting Improvement</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Tuition Classes"> Tuition Classes</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Public Speaking"> Public Speaking</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Personality Development"> Personality Development</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Calligraphy"> Calligraphy</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Art & Craft"> Painting/Art & Craft</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Spoken English"> Spoken English/Phonics</label>
+                            <label class="checkbox-item"><input type="checkbox" name="Interested_Programs[]"
+                                    value="Not Sure">
+                                Not Sure</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label class="form-label"
+                            style="font-size: 1.2rem; border-bottom: 2px solid var(--color-cream); padding-bottom: 0.5rem; margin-bottom: 1rem;">Would
+                            you like to book a FREE demo class?</label>
+                        <div style="display: flex; gap: 2rem;">
+                            <label class="checkbox-item"><input type="radio" name="Book_Free_Demo" value="Yes" required>
+                                Yes</label>
+                            <label class="checkbox-item"><input type="radio" name="Book_Free_Demo" value="No">
+                                No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <label class="form-label"
+                            style="font-size: 1.2rem; border-bottom: 2px solid var(--color-cream); padding-bottom: 0.5rem; margin-bottom: 1rem;">How
+                            did you hear about us?</label>
+                        <select class="form-control" name="How_Hear_About_Us" id="hearAbout"
+                            onchange="toggleOtherInput()">
+                            <option value="">Select an option</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Google">Google</option>
+                            <option value="Referral">Referral</option>
+                            <option value="Nearby / Local Area">Nearby / Local Area</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <input type="text" name="Other_Hear_About_Source" id="otherSource" class="form-control"
+                            placeholder="Please specify..." style="display: none; margin-top: 1rem;">
+                    </div>
+
+                    <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"
+                            style="margin-right: 8px;"></i> Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"
+                        style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div
+                            style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child
+                        and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank"
+                            title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank"
+                            title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i>
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i>
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184
+                                23645</a>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i>
+                            <a href="mailto:brainyogaclassroom@gmail.com"
+                                class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank"
+                        class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google
+                            Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        function toggleOtherInput() {
+            const select = document.getElementById('hearAbout');
+            const otherInput = document.getElementById('otherSource');
+            if (select.value === 'Other') {
+                otherInput.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.required = false;
+            }
+        }
+
+        document.getElementById('admissionForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+
+            // Check if browsing via file:// protocol
+            if (window.location.protocol === 'file:') {
+                alert("FormSubmit does not support local HTML files (file:// protocol).\n\nPlease open this page using a local web server (such as VS Code Live Server or by running 'python3 -m http.server 8000' in the folder) or host it on GitHub Pages/live server to test the form submission.");
+                return;
+            }
+
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" style="margin-right: 8px;"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch("https://formsubmit.co/ajax/brainyogaclassroom@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+
+                    if (data.success === "true") {
+                        // Hide the form container
+                        form.style.display = 'none';
+                        // Show a gorgeous, custom success card inside the form container
+                        const successDiv = document.createElement('div');
+                        successDiv.id = 'form-success';
+                        successDiv.style.textAlign = 'center';
+                        successDiv.style.padding = '3rem';
+                        successDiv.style.color = 'var(--color-purple-dark)';
+                        successDiv.innerHTML = `
+                        <i class="fa-solid fa-circle-check" style="font-size: 4.5rem; color: #48BB78; margin-bottom: 1.5rem; display: block;"></i>
+                        <h2 style="font-size: 2.2rem; margin-bottom: 1rem; font-family: var(--font-heading);">Application Submitted!</h2>
+                        <p style="font-size: 1.15rem; color: var(--color-text-light); line-height: 1.6; max-width: 500px; margin: 0 auto 2.5rem;">
+                            Thank you for applying. We have received your admission application and will get in touch with you shortly.
+                        </p>
+                        <a href="index.html" class="btn btn-primary" style="display: inline-block; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; background-color: var(--color-purple-primary); color: white;">Return Home</a>
+                    `;
+                        form.parentNode.appendChild(successDiv);
+                        successDiv.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                        if (data.message && data.message.includes('activate')) {
+                            alert("FormSubmit requires activation. A confirmation email has been sent to brainyogaclassroom@gmail.com. Please log in to that email account and click 'Activate Form' to start receiving submissions.");
+                        } else {
+                            alert("Something went wrong: " + (data.message || "Please try again later."));
+                        }
+                    }
+                })
+                .catch(error => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    console.error("Error submitting form:", error);
+                    alert("Submission failed. Please check your internet connection and try again.");
+                });
+        });
+    </script>
+</body>
+
+</html>

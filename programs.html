@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs | Brain Yoga</title>
+    <meta name="description"
+        content="Explore the various programs offered by Brain Yoga Classes including Abacus, Vedic Maths, Hindi, Handwriting, and more.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background-color: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid var(--color-purple-primary);
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: var(--color-purple-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-purple-dark);
+        }
+
+        .program-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-title {
+            color: var(--color-purple-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .program-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--color-purple-primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            background-color: var(--color-cream);
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .read-more-btn {
+            background-color: var(--color-purple-primary);
+            color: var(--color-white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .read-more-btn:hover {
+            background-color: var(--color-purple-dark);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--color-white);
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            color: #aaa;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--color-purple-dark);
+        }
+
+        .modal-body {
+            color: #4a4a4a;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .modal-body h2 {
+            color: var(--color-purple-dark);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            border-bottom: 2px solid var(--color-cream);
+            padding-bottom: 1rem;
+        }
+
+        .modal-body h3 {
+            color: var(--color-purple-primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .course-details-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 2.5rem;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .course-details-table th,
+        .course-details-table td {
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .course-details-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .course-details-table tbody tr {
+            transition: background-color 0.2s ease;
+        }
+
+        .course-details-table tbody tr:hover {
+            background-color: rgba(94, 53, 177, 0.04);
+        }
+
+        .course-details-table th {
+            font-weight: 700;
+            color: var(--color-white);
+            background-color: var(--color-purple-primary);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Enrollment Button inside Modals */
+        .modal-enroll-container {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+
+        .modal-enroll-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+            padding: 14px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--color-purple-primary), var(--color-purple-dark));
+            color: var(--color-white) !important;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(133, 91, 169, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .modal-enroll-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(133, 91, 169, 0.5);
+            background: linear-gradient(135deg, var(--color-purple-dark), var(--color-purple-primary));
+        }
+
+        .modal-enroll-btn i {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-enroll-btn:hover i {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html" class="active">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background-color: var(--color-purple-dark); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem;">OUR PROGRAMS</h1>
+            <p style="color: var(--color-cream); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Discover courses
+                designed to unlock your child's true potential.</p>
+        </div>
+    </section><!-- Programs Section -->
+    <section class="section" style="padding: 4rem 0; background-color: var(--color-cream);">
+        <div class="container">
+
+            <div class="programs-grid">
+
+                <!-- Program 1: Abacus -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-calculator"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Abacus Training</h3>
+                        <p class="program-excerpt">Improve concentration, faster calculation skills, and stronger memory
+                            from an early age.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 4 to 10 Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000/mo</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_abacus')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 2: Vedic Maths -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-square-root-variable"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Vedic Maths</h3>
+                        <p class="program-excerpt">Ancient Indian techniques that help solve complex calculations
+                            quickly without lengthy steps.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 12+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2500/mo</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_vedic')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 3: Hindi Classes -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-language"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Hindi Classes</h3>
+                        <p class="program-excerpt">We teach Hindi in a way that feels simple and natural. Read, write,
+                            and understand step by step.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 5+ Years to Adults</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000/mo</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_hindi')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 4: Handwriting -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-pen-nib"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Handwriting Improvement</h3>
+                        <p class="program-excerpt">Learn how letters should sit on the line, how much space to leave,
+                            and write clearly.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 5+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000/mo</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_handwriting')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 5: Public Speaking -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-microphone-lines"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Public Speaking</h3>
+                        <p class="program-excerpt">Helping children speak normally and confidently in everyday
+                            situations and on stage.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 6+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000 onwards</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_speaking')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 6: Tuition Classes -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-book-open-reader"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Tuition Classes</h3>
+                        <p class="program-excerpt">Individual attention for every child. We explain concepts until they
+                            are fully understood.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> Class I to X</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000 - 3000/mo</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_tuition')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 7: Spoken English -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-comment-dots"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Spoken English</h3>
+                        <p class="program-excerpt">Learn and understand how to use the English language naturally in
+                            daily life without mistakes.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 6+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2500/mo</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_english')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 8: Art & Craft -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-palette"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Art & Craft / Painting</h3>
+                        <p class="program-excerpt">Develop thinking, imagination, and expression through structured
+                            drawing and coloring.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 5+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000 onwards</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_art')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 9: Personality Dev -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Personality Development</h3>
+                        <p class="program-excerpt">Focus on daily behaviour, communication, and thinking to become more
+                            confident in real life.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 6+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000 onwards</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_personality')">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Program 10: Calligraphy -->
+                <div class="program-card">
+                    <div class="program-img"><i class="fa-solid fa-feather-pointed"></i></div>
+                    <div class="program-content">
+                        <h3 class="program-title">Calligraphy</h3>
+                        <p class="program-excerpt">Developing discipline, attention, and creativity while learning
+                            beautiful lettering styles.</p>
+                        <div class="program-meta">
+                            <span><i class="fa-solid fa-child"></i> 7+ Years</span>
+                            <span><i class="fa-solid fa-indian-rupee-sign"></i> 2000 onwards</span>
+                        </div>
+                        <button class="read-more-btn" onclick="openModal('modal_calligraphy')">View Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for Programs -->
+
+    <!-- Abacus -->
+    <div id="modal_abacus" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_abacus')">&times;</span>
+            <div class="modal-body">
+                <h2>Abacus Training</h2>
+                <p>Why Are Abacus Classes Important for Brain Development and Fast Calculation in Kids?</p>
+                <p>Brain Yoga Classes offer one of the best Abacus classes for kids who need better concentration,
+                    faster calculation skills, and stronger memory from an early age.</p>
+                <p>Our Abacus program is specially designed for young children to develop their brain during the most
+                    important learning years. It helps children perform calculations quickly without using fingers or
+                    calculators, building confidence in maths from the start.</p>
+                <p>In today’s digital world, children are becoming more dependent on screens and shortcuts, which
+                    reduces their ability to focus and think independently. That is why many parents now actively search
+                    for abacus classes for kids that focus on real brain development instead of just academic learning.
+                </p>
+
+                <h3>What Are The Benefits of Abacus?</h3>
+                <p>How Do Abacus Classes Improve Concentration, Memory, and Mental Maths Skills?<br>
+                    Abacus works by training both sides of the brain through visualization and practice. Children first
+                    learn using beads and gradually shift to solving calculations mentally.</p>
+                <p>With consistent training, children develop:</p>
+                <ul>
+                    <li>Faster calculation speed</li>
+                    <li>Better concentration</li>
+                    <li>Strong memory retention</li>
+                </ul>
+                <p>This method improves overall thinking ability and helps children perform better in school as well as
+                    daily activities.</p>
+                <p>Parents looking for effective mental maths classes for kids often choose Abacus because it builds
+                    long-term cognitive skills.</p>
+
+                <h3>Why Do Children Today Need Abacus Training More Than Ever?</h3>
+                <p>Most children today struggle with short attention span, lack of focus, and fear of maths. This
+                    happens due to increased screen time and reduced mental practice.</p>
+                <p>Abacus provides a structured way to train the brain and improve these areas. It helps children stay
+                    attentive, process information faster, and solve problems with confidence. That is why Abacus is
+                    widely recommended as one of the most effective brain development classes for children.</p>
+
+                <h3>What Do Children Learn By Doing Abacus?</h3>
+                <p>After completing the program, children show noticeable improvement in:</p>
+                <ul>
+                    <li>Mental calculation ability</li>
+                    <li>Focus and attention span</li>
+                    <li>Academic confidence</li>
+                    <li>Logical thinking skills</li>
+                </ul>
+                <p>Children who once found maths difficult start solving problems quickly and accurately.</p>
+
+                <h3>Why Choose Brain Yoga Classes for Abacus Training?</h3>
+                <p>We focus on actual results and improvement:</p>
+                <ul>
+                    <li>Step-by-step structured learning</li>
+                    <li>Individual attention for every child</li>
+                    <li>Regular practice sessions</li>
+                    <li>Supportive and child-friendly environment</li>
+                </ul>
+                <p>Our goal is to ensure that every child develops strong brain skills, not just basic calculation
+                    ability.</p>
+
+                <h3>Is This the Right Age to Start Abacus Classes?</h3>
+                <p>Yes. Early childhood is the best time to train the brain. Starting at the right age helps children
+                    build strong learning habits, better focus, and faster thinking ability that stays with them for
+                    life.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>4 to 10 Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2.5-3 Months (Each Level) / 12hr Monthly</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 per month</td>
+                        </tr>
+                        <tr>
+                            <td>Registration</td>
+                            <td>₹750 (one-time)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Vedic Maths -->
+    <div id="modal_vedic" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_vedic')">&times;</span>
+            <div class="modal-body">
+                <h2>Vedic Maths</h2>
+                <p><strong>What Are Vedic Maths Classes?</strong><br>
+                    Vedic Maths is based on ancient Indian techniques that help solve complex calculations quickly
+                    without lengthy steps. It makes maths simpler, faster, and more interesting for students who
+                    otherwise find it difficult or time-consuming.</p>
+                <p>Brain Yoga Classes offers one of the best Vedic Maths classes for students who want to improve
+                    calculation speed, accuracy, and confidence in mathematics. Our Vedic Maths course is specially
+                    designed for school students as well as those preparing for competitive exams like UPSC, CSAT, SSC,
+                    Banking, NDA and other entrance exams where time and accuracy matter the most.</p>
+                <p>Students today face time pressure in exams and often lose marks due to slow calculations. That is why
+                    many parents now actively look for Vedic Maths classes for students that can give their child a real
+                    advantage.</p>
+
+                <h3>How Does Vedic Maths Help Students?</h3>
+                <p>Vedic Maths focuses on smart techniques instead of traditional long methods. It trains the brain to
+                    process numbers faster and more efficiently. With regular practice, students learn to:</p>
+                <ul>
+                    <li>Solve calculations in seconds</li>
+                    <li>Reduce mistakes in exams</li>
+                    <li>Improve accuracy under pressure</li>
+                </ul>
+                <p>Our structured approach ensures that students understand each concept step-by-step with proper
+                    guidance, practice worksheets, and continuous improvement tracking. This is especially useful for
+                    students preparing for competitive exams where speed is a key factor.</p>
+
+                <h3>Can Vedic Maths Help Students Struggling With Maths?</h3>
+                <p>Many students are scared of mathematics. But struggle isn’t just faced by your child; in fact today
+                    many students struggle with maths because methods are lengthy and confusing, lack of practice
+                    reduces confidence, and time pressure creates stress.</p>
+                <p>But by choosing Brain Yoga Classes, you are opting for the best Vedic Maths classes near you, which
+                    are changing the approach of normal education and teaching through the method of Vedic times
+                    teaching. Instead of memorising steps, students learn patterns and shortcuts that make
+                    problem-solving quicker and easier. This reduces fear and builds confidence naturally.</p>
+
+                <h3>What Will Your Child Gain from Vedic Maths?</h3>
+                <p>After completing the course, students experience clear improvements:</p>
+                <ul>
+                    <li>Faster problem-solving ability</li>
+                    <li>Better performance in exams</li>
+                    <li>Increased confidence in maths</li>
+                    <li>Strong logical thinking skills</li>
+                </ul>
+                <p>The program not only improves marks but also develops a sharper and more active mind.</p>
+
+                <h3>Why Choose Brain Yoga Classes for Vedic Maths?</h3>
+                <ul>
+                    <li>We focus on practical results, not just teaching.</li>
+                    <li>Step-by-step learning approach</li>
+                    <li>Regular practice and revision</li>
+                    <li>Individual attention to each student</li>
+                    <li>Proven improvement in speed and accuracy</li>
+                </ul>
+                <p>If your child is preparing for exams or struggling with calculation speed, this is the right time to
+                    start.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>12+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration Per Level</td>
+                            <td>2–3 Months</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2500 per month</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Hindi -->
+    <div id="modal_hindi" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_hindi')">&times;</span>
+            <div class="modal-body">
+                <h2>Hindi Language Development</h2>
+                <p><strong>Why Are Hindi Classes Important Today?</strong><br>
+                    Today many children grow up focusing more on English, while Hindi slowly becomes a weak area. Over
+                    time, they start finding it difficult to read properly, write without mistakes, or understand what
+                    is being taught in school. The problem is not the child. The problem is how the language is taught.
+                    Hindi is often portrayed as a complex subject, full of rules, and difficult to learn, which leads
+                    children to lose interest early.</p>
+                <p>At Brain Yoga Classes, we change this approach completely. We teach Hindi in a way that feels simple
+                    and natural. Just like a child learns to speak, we help them read, write, and understand step by
+                    step not just by filling their copies with notes. That is exactly what we focus on.</p>
+
+                <h3>Why Are Parents Choosing Hindi Classes?</h3>
+                <p>Parents today understand the importance of English, but they also realise that ignoring Hindi creates
+                    gaps in learning from our surroundings. A child who is not comfortable in Hindi often struggles in
+                    exams, school instructions, and even basic communication.</p>
+                <p>Even educated parents now choose Hindi classes because:</p>
+                <ul>
+                    <li>Strong Hindi improves overall academic performance</li>
+                    <li>It helps in a better understanding of subjects in school</li>
+                    <li>It builds confidence in reading and writing</li>
+                    <li>It connects children to their roots and daily communication</li>
+                </ul>
+                <p>We give equal importance to both English and Hindi, because both are necessary for a child’s complete
+                    development.</p>
+
+                <h3>What Makes Our Hindi Classes Different?</h3>
+                <p>Most centres focus only on finishing school work. Children copy answers but do not understand the
+                    language. This creates confusion and fear.</p>
+                <p>We work differently. We understand that every child learns at a different pace and has a different
+                    level of comfort with Hindi. Our approach focuses on:</p>
+                <ul>
+                    <li>Making Hindi easy instead of complicated</li>
+                    <li>Teaching in a way that builds children's interest</li>
+                    <li>Exercises like storytelling, role-plays and fun activities to signal their brain neurons</li>
+                </ul>
+
+                <h3>What Will Your Child Gain?</h3>
+                <p>With proper guidance and practice, children show real improvement in reading Hindi smoothly, writing
+                    clearly without mistakes, understanding lessons in school, and speaking with confidence. They stop
+                    memorising and start understanding.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>5+ Years to adults</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2-3 months per level/ 8hr Monthly</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 per month</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Handwriting -->
+    <div id="modal_handwriting" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_handwriting')">&times;</span>
+            <div class="modal-body">
+                <h2>Handwriting Improvement</h2>
+                <p><strong>Why Do Children Lose Marks Even When They Know the Answer?</strong><br>
+                    Many parents notice this: The child studies well, answers correctly, but marks are still low. When
+                    you look closely, the issue is not knowledge; it is presentation. If the writing is unclear,
+                    cramped, or uneven, the answer is hard to read, regardless of the language. Teachers move on, and
+                    the child loses marks.</p>
+                <p>This is where handwriting becomes important not for beauty, but for clarity. A child should be able
+                    to write in a way that anyone can read without effort.</p>
+
+                <h3>What Is Actually Wrong with the Way Children Write?</h3>
+                <p>Most children are never taught how to write properly. They are told to write more, write faster, and
+                    complete work. No one shows them how letters should sit on the line, how much space to leave, or how
+                    to hold the pencil correctly.</p>
+                <p>Over time, each child creates their own style. Some write too big, some too small, some join letters
+                    wrongly, and some press too hard. These habits become fixed, and then writing starts looking messy
+                    even after practice. The problem is not the child; just the right method is missing.</p>
+
+                <h3>What Do We Do Differently at Brain Yoga Classes?</h3>
+                <p>We do not start with pages of writing. We first slow things down. We observe how the child writes,
+                    where the mistake is, and why it is happening. Then we correct one thing at a time. If spacing is
+                    wrong, we fix spacing. If letters are not clear, we fix formation. If speed is the issue, we first
+                    fix control.</p>
+                <p>Children are not asked to write more. They are shown how to write better. We also use guided sheets
+                    and short practice tasks instead of long, boring pages.</p>
+
+                <h3>How Does a Child Improve?</h3>
+                <p>Improvement does not happen in one day. It happens when small mistakes are corrected regularly.
+                    Children practise in a way that:</p>
+                <ul>
+                    <li>Each letter becomes clear and readable.</li>
+                    <li>Words are spaced properly.</li>
+                    <li>Writing stays neat even after a full page.</li>
+                    <li>Speed improves only after control is built.</li>
+                </ul>
+                <p>We also make children recheck their own writing. This habit alone changes how they write in school.
+                </p>
+
+                <h3>What Changes Will You See?</h3>
+                <p>Writing becomes easier to read. School notebooks start looking neat. Teachers stop complaining about
+                    handwriting. Children feel less pressure while writing. Most importantly, the child stops rushing
+                    and starts writing with control.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>5+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>1-2 months per level</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 per month</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Public Speaking -->
+    <div id="modal_speaking" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_speaking')">&times;</span>
+            <div class="modal-body">
+                <h2>Public Speaking</h2>
+                <p><strong>Why does a child stay silent even when they know the answer?</strong><br>
+                    Have you ever noticed your child knows the answer at home but becomes quiet in class or in front of
+                    others? This is very common. It is not because the child does not understand. It is because they are
+                    not comfortable expressing their thoughts in front of people. Schools focus on writing and learning,
+                    but speaking is often left to chance. Over time, this hesitation becomes a habit.</p>
+                <p>At Brain Yoga Classes, we treat speaking as a daily skill, not a one-time activity. Parents who
+                    search for public speaking classes for kids are usually not looking for stage performance. They want
+                    their child to speak normally and confidently in everyday situations. That is exactly where we
+                    begin.</p>
+
+                <h3>What actually happens when a child tries to speak?</h3>
+                <p>When a child is suddenly asked to speak, they worry about forgetting words. They think others might
+                    laugh. They are unsure how to start. So even before they speak, they lose confidence.</p>
+                <p>Children need a system. They need small steps that make speaking feel safe and natural. That is why
+                    many parents today look for communication skills classes for students where children are guided
+                    properly instead of being pushed.</p>
+
+                <h3>So what do we actually do in class?</h3>
+                <p>We do not start with speeches. We start with comfort. Children begin with simple activities:</p>
+                <ul>
+                    <li>Talking about something they like</li>
+                    <li>Answering small questions</li>
+                    <li>Speaking in pairs before speaking in a group</li>
+                    <li>Listening and responding to others</li>
+                </ul>
+                <p>Once they get used to speaking, we slowly move to short presentations, storytelling, topic-based
+                    speaking, and expressing opinions clearly.</p>
+
+                <h3>What skills does a child actually develop?</h3>
+                <p>We do not just make children speak. We teach them how to speak. They learn:</p>
+                <ul>
+                    <li>How to begin without hesitation</li>
+                    <li>How to organise thoughts before speaking</li>
+                    <li>How to speak clearly so others understand</li>
+                    <li>How to stay calm while speaking</li>
+                </ul>
+
+                <h3>Why do many classes not give real results?</h3>
+                <p>A child memorises a speech, performs once, and then goes back to the same hesitation. Confidence
+                    comes from repetition. From speaking again and again in different situations.</p>
+                <p>At Brain Yoga Classes, every child gets time to speak in each session. Practice is regular, mistakes
+                    are corrected gently, and progress is built step by step.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>6+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2 to 3 months</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 Onwards</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Tuition -->
+    <div id="modal_tuition" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_tuition')">&times;</span>
+            <div class="modal-body">
+                <h2>Tuition Classes</h2>
+                <p><strong>Why Do Students Need Proper Tuition Support Today?</strong><br>
+                    School teaching is often fast, lacking attention on each student and not every child is able to
+                    understand everything in the same explained concept or theory. Many students hesitate to ask doubts
+                    in class and slowly start falling behind. But that’s not the issue with Brain Yoga unlike other
+                    tuition classes.</p>
+                <p>At Brain Yoga Classes, we provide tuition classes for students from Class I to X where every child is
+                    guided properly and every concept is explained until it is fully understood. Parents searching for
+                    tuition classes near me usually want a place where their child is not ignored. That is exactly what
+                    we focus on.</p>
+
+                <h3>What Is Different About Our Tuition Classes?</h3>
+                <p>Most tuition centres only focus on completing homework or finishing the syllabus. Children attend
+                    classes but still remain confused, unaware of their chapters, confused over concepts and in fear of
+                    marking. We focus on:</p>
+                <ul>
+                    <li>Teaching until the child understands</li>
+                    <li>Giving time to every student</li>
+                    <li>Explaining basics before moving ahead</li>
+                    <li>Regular checking of progress</li>
+                </ul>
+                <p>We do not rush. We make sure learning is complete.</p>
+
+                <h3>What Do Students Learn Here?</h3>
+                <p>Students are taught in a simple and clear way so they do not feel pressure. They receive chapter wise
+                    explanation of subjects, proper notes for easy revision, homework support and practice, and regular
+                    tests to check understanding.</p>
+
+                <h3>How Brain Yoga Classes Solves This Problem</h3>
+                <p>Many tuition centres fail students because there are too many students in one batch, no personal
+                    attention, and only focus on completing syllabus. We focus on each child, not just the class.</p>
+                <ul>
+                    <li>Small batches so every child gets attention</li>
+                    <li>Doubt solving in every session</li>
+                    <li>Extra help for weak subjects</li>
+                    <li>Regular communication with parents</li>
+                </ul>
+
+                <h3>What Will Your Child Gain?</h3>
+                <p>With regular learning, students improve in school marks and performance, understanding of subjects,
+                    confidence during exams, and focus and study habits. Children who were earlier confused start
+                    studying on their own.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>Class I to X</td>
+                        </tr>
+                        <tr>
+                            <td>Subjects</td>
+                            <td>All major subjects</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>Ongoing</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 to ₹3000 per month</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Spoken English -->
+    <div id="modal_english" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_english')">&times;</span>
+            <div class="modal-body">
+                <h2>Spoken English</h2>
+                <p><strong>Why Are Spoken English Classes Important for Children Today?</strong><br>
+                    In today’s world, English is not just a subject but an equally important spoken language. Even in
+                    schools and all their cultural programs, students with clear pronunciation and language are
+                    preferred more.</p>
+                <p>At Brain Yoga Classes, we offer one of the best spoken English classes for children, especially for
+                    those who want to improve their speaking skills, pronunciation, and gain an upper hand in the
+                    language from an early stage.</p>
+
+                <h3>What Do Children Learn in Spoken English Classes?</h3>
+                <p>Spoken English is not about memorising grammar rules or huge long spellings. It is about learning and
+                    understanding how to use the language naturally in daily life without making mistakes.</p>
+                <p>Children are taught step by step to:</p>
+                <ul>
+                    <li>Understand the logic behind the languages grammar and words</li>
+                    <li>Speak clearly with correct pronunciation</li>
+                    <li>Use proper grammar while speaking</li>
+                    <li>Build a strong vocabulary</li>
+                    <li>Form sentences confidently without hesitation</li>
+                </ul>
+                <p>Through regular speaking practice, children slowly become comfortable expressing their thoughts in
+                    English.</p>
+
+                <h3>Why Children Struggle with English Speaking?</h3>
+                <p>Many children understand English but hesitate while speaking because they are afraid of making
+                    mistakes, lack of practice sessions reduces their confidence, focus is only on writing not speaking
+                    abilities, and lack of knowledge and guidance on proper pronunciation.</p>
+
+                <h3>How Do Spoken English Classes Help?</h3>
+                <p>At Brain Yoga Classes, our prime focus is always on practical learning not just going by theory or
+                    books. Children learn through daily speaking activities, interactive conversations, group activities
+                    and plays, role play and real-life situations, and continuous correction and guidance. This helps
+                    children improve naturally without taking in pressure.</p>
+
+                <h3>What Will Your Child Gain?</h3>
+                <p>After completing the course, children show clear improvement in confidence while speaking,
+                    pronunciation and fluency, vocabulary usage, and communication skills in school and daily life. They
+                    no longer hesitate to speak in front of others.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>6+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2-3 Months (Per Level)</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2500 per month</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Art & Craft -->
+    <div id="modal_art" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_art')">&times;</span>
+            <div class="modal-body">
+                <h2>Art & Craft / Painting Classes</h2>
+                <p><strong>Is art just a hobby or an important skill?</strong><br>
+                    Many people see art as a time pass. But think about this. When a child draws, colours, or creates
+                    something, they are thinking, imagining, and expressing. These are skills that help in every subject
+                    and in life. Parents searching for art and craft classes for kids usually want their child to learn
+                    properly, not just stay busy.</p>
+
+                <h3>What is missing in most art classes?</h3>
+                <p>Children are often told: “Draw this” or “Colour like this” they simply copy. They finish. But do they
+                    learn how to draw? Not really. At Brain Yoga Classes, we focus on teaching the process, not just the
+                    result.</p>
+
+                <h3>What do children actually learn?</h3>
+                <p>Children are guided step by step:</p>
+                <ul>
+                    <li>Understanding shapes and structure</li>
+                    <li>Drawing with proportion</li>
+                    <li>Colouring with proper technique</li>
+                    <li>Using different materials</li>
+                    <li>Creating their own ideas</li>
+                </ul>
+                <p>Let me ask you. If a child understands how to draw, will they need to copy? That is the difference we
+                    create.</p>
+
+                <h3>Why do children improve better here?</h3>
+                <p>Because we teach basics first, give time for practice, encourage creativity, and guide instead of
+                    controlling. This helps children enjoy learning and improve at the same time.</p>
+                <p>Parents looking for painting classes for kids often prefer structured learning instead of random
+                    activities.</p>
+
+                <h3>What changes will you notice?</h3>
+                <ul>
+                    <li>Better drawing skills</li>
+                    <li>More creative thinking</li>
+                    <li>Improved focus</li>
+                    <li>Interest in learning new things</li>
+                </ul>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>5+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2 to 3 months</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 onwards</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Personality Dev -->
+    <div id="modal_personality" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_personality')">&times;</span>
+            <div class="modal-body">
+                <h2>Personality Development</h2>
+                <p><strong>What do parents really mean when they say “my child should be confident”?</strong><br>
+                    Do they mean speaking on stage? Or something more basic? Most parents are actually talking about
+                    everyday situations. Can the child answer properly in class? Can they talk to elders respectfully?
+                    Can they express what they feel without hesitation? This is where personality starts showing.</p>
+                <p>At Brain Yoga Classes, we do not treat personality development as a fancy subject. We focus on daily
+                    behaviour, communication, and thinking. Parents searching for personality development classes for
+                    kids usually want their child to become more confident in real life, not just in activities.</p>
+
+                <h3>So what is actually missing in most children today?</h3>
+                <p>Children are taught subjects every day, but are they taught how to respond when someone asks a
+                    question? How to handle a new situation? How to express disagreement politely? Most of the time, the
+                    answer is no.</p>
+                <p>This creates a gap. The child may be intelligent but still feel unsure in social situations. That is
+                    why many parents now look for confidence building classes for children that go beyond studies.</p>
+
+                <h3>What do we actually do in class?</h3>
+                <p>We do not make children sit and listen. We involve them. Children participate in:</p>
+                <ul>
+                    <li>Real-life situation activities</li>
+                    <li>Group discussions</li>
+                    <li>Speaking and response exercises</li>
+                    <li>Behaviour-based guidance</li>
+                </ul>
+                <p>Confidence becomes natural when it is practised, not forced.</p>
+
+                <h3>What makes our approach different?</h3>
+                <p>Most places focus only on speaking or only on discipline. We combine both. We help children speak
+                    clearly, listen properly, think before reacting, and build self-control.</p>
+                <p>We also understand that every child is different. Some are quiet, some are active, some are unsure.
+                    We guide each child based on their behaviour, not with one fixed method.</p>
+
+                <h3>What changes will you notice over time?</h3>
+                <p>Parents start noticing the child responds more clearly, behaviour becomes more balanced, confidence
+                    improves in school, and the child becomes more aware and responsible.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>6+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2 to 3 months</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 onwards</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Calligraphy -->
+    <div id="modal_calligraphy" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal_calligraphy')">&times;</span>
+            <div class="modal-body">
+                <h2>Calligraphy Classes</h2>
+                <p><strong>Is calligraphy just neat writing or something deeper?</strong><br>
+                    Many parents think calligraphy is just about writing nicely. But let’s look at it differently. When
+                    a child writes with control, focus, and patience, they are not just improving handwriting. They are
+                    developing discipline, attention, and creativity at the same time.</p>
+                <p>Parents searching for calligraphy classes for kids often want something meaningful beyond regular
+                    studies. This is where calligraphy becomes useful.</p>
+
+                <h3>What is the common mistake in learning calligraphy?</h3>
+                <p>Many places teach multiple styles quickly. Children learn a little of everything but master nothing.
+                    At Brain Yoga Classes, we focus on one style at a time. We give enough time for practice before
+                    moving ahead.</p>
+
+                <h3>What do children actually learn?</h3>
+                <p>Children are trained step by step:</p>
+                <ul>
+                    <li>Proper pen holding</li>
+                    <li>Basic strokes and patterns</li>
+                    <li>Letter formation with consistency</li>
+                    <li>Spacing and alignment</li>
+                </ul>
+                <p>We do not rush. We make sure the child understands each step.</p>
+
+                <h3>Why do children enjoy this class?</h3>
+                <p>Because it feels different. It is calm. It is focused. It is creative. Children are not under
+                    pressure to perform. They are guided to improve.</p>
+
+                <h3>What changes will you notice?</h3>
+                <p>Over time, children show better control in writing, improved focus and patience, cleaner and more
+                    organised work, and interest in creative writing.</p>
+
+                <table class="course-details-table">
+                    <thead>
+                        <tr>
+                            <th>Detail</th>
+                            <th>Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age Group</td>
+                            <td>7+ Years</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>2 to 3 months</td>
+                        </tr>
+                        <tr>
+                            <td>Fees</td>
+                            <td>₹2000 onwards</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="modal-enroll-container">
+                    <a href="admissions.html" class="modal-enroll-btn">
+                        <i class="fa-solid fa-graduation-cap"></i> Want to Apply? - CLICK HERE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"
+                        style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div
+                            style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child
+                        and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank"
+                            title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank"
+                            title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i>
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i>
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184
+                                23645</a>
+                        </li>
+                        <li
+                            style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i>
+                            <a href="mailto:brainyogaclassroom@gmail.com"
+                                class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank"
+                        class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google
+                            Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling under modal
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+
+</html>

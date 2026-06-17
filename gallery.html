@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Brain Yoga</title>
+    <meta name="description"
+        content="Brain Yoga is a premium learning center enhancing numerical thinking, language confidence, mindfulness, and creative expression.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Premium Gallery Styling */
+        .gallery-section {
+            padding: 60px 0;
+            background-color: var(--color-cream);
+        }
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .gallery-filter-btn {
+            border: 2px solid var(--color-purple-light);
+            background: #ffffff;
+            color: var(--color-purple-primary);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: var(--box-shadow);
+        }
+        .gallery-filter-btn:hover {
+            background: var(--color-purple-light);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        .gallery-filter-btn.active {
+            background: var(--color-purple-primary) !important;
+            color: #ffffff !important;
+            border-color: var(--color-purple-primary) !important;
+            box-shadow: var(--box-shadow-hover);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .gallery-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+            position: relative;
+            border: 1px solid rgba(133, 91, 169, 0.1);
+        }
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--box-shadow-hover);
+        }
+        .gallery-media-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 66.67%; /* 3:2 Aspect Ratio */
+            background: #1A1A1A;
+            overflow: hidden;
+        }
+        .gallery-media-wrapper img,
+        .gallery-media-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-card:hover .gallery-media-wrapper img {
+            transform: scale(1.06);
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+        .gallery-card:hover .video-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .play-btn-circle {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            color: var(--color-purple-primary);
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .gallery-card:hover .play-btn-circle {
+            transform: scale(1.15);
+            background: var(--color-purple-primary);
+            color: #ffffff;
+        }
+        .gallery-info {
+            padding: 16px 20px;
+            background: #ffffff;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .gallery-title {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--color-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .gallery-type-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 8px;
+        }
+        .badge-photo {
+            background: var(--color-cream);
+            color: var(--color-purple-primary);
+        }
+        .badge-video {
+            background: rgba(133, 91, 169, 0.1);
+            color: var(--color-purple-dark);
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(15, 10, 25, 0.95);
+            backdrop-filter: blur(8px);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.show {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            z-index: 10002;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .lightbox-close:hover {
+            color: #e53e3e;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            color: #ffffff;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+            z-index: 10001;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .lightbox-prev {
+            left: 30px;
+        }
+        .lightbox-next {
+            right: 30px;
+        }
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: var(--color-purple-primary);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+        .lightbox-content-wrapper {
+            position: relative;
+            max-width: 85%;
+            max-height: 85%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-img,
+        .lightbox-video {
+            max-width: 100%;
+            max-height: 75vh;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+            border: 2px solid rgba(255,255,255,0.1);
+            display: none;
+        }
+        .lightbox-caption {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 1.25rem;
+            text-align: center;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .lightbox-prev {
+                left: 10px;
+            }
+            .lightbox-next {
+                right: 10px;
+            }
+            .lightbox-prev, .lightbox-next {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            .lightbox-close {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- Page Header -->
+    <section class="page-header" style="background-color: var(--color-purple-dark); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem; text-transform: uppercase;">Our Gallery</h1>
+            <p style="color: var(--color-cream); font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Explore moments of active learning, numerical calculations, creative expression, and playful skill development inside Brain Yoga Classes.</p>
+        </div>
+    </section>
+
+    <!-- Main Content for Gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <!-- Category Tabs / Filter -->
+            <div class="gallery-filters">
+                <button class="gallery-filter-btn active" data-filter="all">All</button>
+                <button class="gallery-filter-btn" data-filter="photo">Photos</button>
+                <button class="gallery-filter-btn" data-filter="video">Videos</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <!-- Dynamically generated items -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Lightbox Modal -->
+    <div id="galleryLightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        
+        <!-- Prev/Next Controls -->
+        <a class="lightbox-prev">&#10094;</a>
+        <a class="lightbox-next">&#10095;</a>
+        
+        <div class="lightbox-content-wrapper">
+            <img class="lightbox-img" alt="">
+            <video class="lightbox-video" controls></video>
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i> 
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="mailto:brainyogaclassroom@gmail.com" class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank" class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Gallery data
+        const galleryItems = [
+            // Videos
+            { type: 'video', src: 'images/gallery/videos/VID_20260605_104932_040.mp4', title: 'Interactive Brain Yoga Fun Activity' },
+            { type: 'video', src: 'images/gallery/videos/WhatsApp Video 2025-05-10 at 13.32.38.mp4', title: 'Student Mathematics Practice & Focus' },
+            { type: 'video', src: 'images/gallery/videos/WhatsApp Video 2026-01-22 at 01.16.30.mp4', title: 'Abacus Learning & Quick Calculation Session' },
+            { type: 'video', src: 'images/gallery/videos/WhatsApp Video 2026-01-22 at 01.16.33.mp4', title: 'Writing Improvement & Fun Classroom Session' },
+            { type: 'video', src: 'images/gallery/videos/WhatsApp Video 2026-01-22 at 01.17.01.mp4', title: 'Interactive Learning & Skill Training' },
+            
+            // Photos
+            { type: 'photo', src: 'images/gallery/1. OUR STORY - WHO WE ARE.png', title: 'Our Story - Who We Are' },
+            { type: 'photo', src: 'images/gallery/OUR IDEOLOGY.png', title: 'Our Ideology & Educational Vision' },
+            { type: 'photo', src: 'images/gallery/GROUP IMAGE.png', title: 'Student Group Discussion & Class Work' },
+            { type: 'photo', src: 'images/gallery/WHY CHOOSE 1 POINTER IMAGE.png', title: 'Cognitive Growth & Key Focus Pillars' },
+            { type: 'photo', src: 'images/gallery/WHY CHOOSE 2 POINTER IMAGE.jpg', title: 'Supportive & Encouraging Learning Space' },
+            { type: 'photo', src: 'images/gallery/WHY CHOOSE US IMAGE.png', title: 'Why Parents Value Brain Yoga Classes' },
+            { type: 'photo', src: 'images/gallery/adorable-hispanic-girl-playing-with-maths-puzzle-game-sitting-table-kindergarten_839833-34736.jpg', title: 'Maths Puzzle Game & Critical Thinking' },
+            { type: 'photo', src: 'images/gallery/adorable-hispanic-toddler-playing-with-balls-sitting-floor-kindergarten.jpg', title: 'Fine Motor Skills & Playful Education' },
+            { type: 'photo', src: 'images/gallery/young-children-with-autism-playing-together.jpg', title: 'Inclusive & Friendly Group Interaction' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857680190.jpg', title: 'Hand-Eye Coordination Class Projects' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857682451.jpg', title: 'Abacus Mathematics Calculation Speed' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857685311.jpg', title: 'Interactive Motor Skills Exercises' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857687537.jpg', title: 'Concentration Practice & Group Study' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857690102.jpg', title: 'Creative Craft Projects & Painting' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857692541.jpg', title: 'Celebrating Success & Achievements' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857696008.jpg', title: 'Handwriting Development & Writing Speed' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857703779.jpg', title: 'Deep Focus & Logical Thinking Activities' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857706617.jpg', title: 'Sensory Motor Development Practice' },
+            { type: 'photo', src: 'images/gallery/FB_IMG_1767857715211.jpg', title: 'Classroom Activities & Fun Exercises' },
+            { type: 'photo', src: 'images/gallery/WHY CHOOSE US.JPG', title: 'Core Pillars of Brain Yoga Curriculum' },
+            { type: 'photo', src: 'images/gallery/WhatsApp Image 2026-01-22 at 01.17.03 (1).jpeg', title: 'Patience & Attention to Detail' },
+            { type: 'photo', src: 'images/gallery/WhatsApp Image 2026-01-22 at 01.17.03.jpeg', title: 'Student Progress & Milestones' },
+            { type: 'photo', src: 'images/gallery/WhatsApp Image 2026-01-22 at 01.17.04 (1).jpeg', title: 'Spoken English & Writing Skill Class' },
+            { type: 'photo', src: 'images/gallery/WhatsApp Image 2026-01-22 at 01.17.05 (1).jpeg', title: 'Logical Puzzle Practice' },
+            { type: 'photo', src: 'images/gallery/WhatsApp Image 2026-01-22 at 01.17.05.jpeg', title: 'Student Team Building and Fun Activities' }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.querySelector('.gallery-grid');
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+            const lightbox = document.getElementById('galleryLightbox');
+            const lightboxImg = lightbox.querySelector('.lightbox-img');
+            const lightboxVideo = lightbox.querySelector('.lightbox-video');
+            const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            const prevBtn = lightbox.querySelector('.lightbox-prev');
+            const nextBtn = lightbox.querySelector('.lightbox-next');
+            
+            let currentFilter = 'all';
+            let filteredItems = [...galleryItems];
+            let currentIndex = 0;
+
+            // Render Gallery Grid
+            function renderGallery() {
+                grid.innerHTML = '';
+                filteredItems.forEach((item, index) => {
+                    const card = document.createElement('div');
+                    card.className = `gallery-card`;
+                    card.setAttribute('data-index', index);
+                    
+                    let mediaHTML = '';
+                    if (item.type === 'video') {
+                        mediaHTML = `
+                            <div class="gallery-media-wrapper">
+                                <video src="${item.src}" preload="metadata" muted></video>
+                                <div class="video-overlay">
+                                    <div class="play-btn-circle"><i class="fa-solid fa-play"></i></div>
+                                </div>
+                            </div>
+                        `;
+                    } else {
+                        mediaHTML = `
+                            <div class="gallery-media-wrapper">
+                                <img src="${item.src}" alt="${item.title}" loading="lazy">
+                            </div>
+                        `;
+                    }
+                    
+                    card.innerHTML = `
+                        ${mediaHTML}
+                        <div class="gallery-info">
+                            <div class="gallery-title">${item.title}</div>
+                            <span class="gallery-type-badge ${item.type === 'video' ? 'badge-video' : 'badge-photo'}">${item.type}</span>
+                        </div>
+                    `;
+                    
+                    card.addEventListener('click', () => {
+                        openLightbox(index);
+                    });
+                    
+                    grid.appendChild(card);
+                });
+            }
+
+            // Filter Logic
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    currentFilter = button.getAttribute('data-filter');
+                    if (currentFilter === 'all') {
+                        filteredItems = [...galleryItems];
+                    } else {
+                        filteredItems = galleryItems.filter(item => item.type === currentFilter);
+                    }
+                    renderGallery();
+                });
+            });
+
+            // Lightbox Open
+            function openLightbox(index) {
+                currentIndex = index;
+                const item = filteredItems[currentIndex];
+                
+                // Reset state
+                lightboxImg.style.display = 'none';
+                lightboxVideo.style.display = 'none';
+                lightboxVideo.pause();
+                lightboxVideo.src = '';
+                
+                if (item.type === 'video') {
+                    lightboxVideo.src = item.src;
+                    lightboxVideo.style.display = 'block';
+                    lightboxVideo.play();
+                } else {
+                    lightboxImg.src = item.src;
+                    lightboxImg.style.display = 'block';
+                }
+                
+                lightboxCaption.textContent = item.title;
+                lightbox.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Lock main scroll
+            }
+
+            // Lightbox Close
+            function closeLightbox() {
+                lightbox.classList.remove('show');
+                lightboxVideo.pause();
+                lightboxVideo.src = '';
+                document.body.style.overflow = ''; // Unlock main scroll
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            
+            // Close when clicking outside content wrapper
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox || e.target.classList.contains('lightbox-content-wrapper')) {
+                    closeLightbox();
+                }
+            });
+
+            // Navigation controls
+            function navigateLightbox(direction) {
+                if (filteredItems.length <= 1) return;
+                
+                if (direction === 'next') {
+                    currentIndex = (currentIndex + 1) % filteredItems.length;
+                } else {
+                    currentIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+                }
+                openLightbox(currentIndex);
+            }
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateLightbox('next');
+            });
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                navigateLightbox('prev');
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('show')) return;
+                
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox('next');
+                } else if (e.key === 'ArrowLeft') {
+                    navigateLightbox('prev');
+                }
+            });
+
+            // Initial rendering call
+            renderGallery();
+        });
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

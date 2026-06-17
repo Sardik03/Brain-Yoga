@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Brain Yoga</title>
+    <meta name="description"
+        content="Contact Brain Yoga Classes for admissions and inquiries. Find our address, phone number, and social media links.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-info-card {
+            background-color: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--color-purple-primary);
+            margin-right: 1.5rem;
+            width: 40px;
+            text-align: center;
+        }
+
+        .contact-details h3 {
+            color: var(--color-purple-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-details p,
+        .contact-details a {
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-details a:hover {
+            color: var(--color-purple-primary);
+        }
+
+        .social-card {
+            background-color: var(--color-purple-dark);
+            color: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .social-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-cream);
+        }
+
+        .large-social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .large-social-links a {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .large-social-links a:hover {
+            color: var(--color-cream);
+            transform: translateY(-5px);
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background-color: var(--color-purple-dark); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem;">CONTACT US</h1>
+            <p style="color: var(--color-cream); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">We would love to
+                hear from you. Reach out to us for any inquiries.</p>
+        </div>
+    </section><!-- Contact Section -->
+    <section class="section" style="padding: 4rem 0; background-color: var(--color-cream);">
+        <div class="container">
+
+            <div class="contact-grid">
+                <!-- Info Card -->
+                <div class="contact-info-card">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-details">
+                            <h3>Call Us</h3>
+                            <p><a href="tel:+919818423645">+91 98184 23645</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="contact-details">
+                            <h3>WhatsApp</h3>
+                            <p><a href="https://wa.me/+919818423645" target="_blank">+91 98184 23645</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="contact-details">
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:brainyogaclassroom@gmail.com">brainyogaclassroom@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="contact-details">
+                            <h3>Visit Us</h3>
+                            <p>3BA 610, 6th Floor, Tower 3 River Heights Society<br>
+                                River Heights Rd, Sehani Khurd<br>
+                                Raj Nagar Extension, Ghaziabad<br>
+                                Uttar Pradesh - 201003, India</p>
+                            <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank"
+                                style="display: inline-block; margin-top: 10px; color: var(--color-purple-primary); font-weight: bold;"><i
+                                    class="fa-solid fa-map-location-dot"></i> Open in Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Card -->
+                <div class="social-card">
+                    <h3>Connect With Us</h3>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.9;">Follow Brain Yoga on social media
+                        for updates, tips, and glimpses inside our classrooms!</p>
+
+                    <div class="large-social-links">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank"
+                            title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank"
+                            title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+
+                    <div style="margin-top: 1rem;">
+                        <a href="https://wa.me/+919818423645" target="_blank" class="whatsapp-btn">
+                            <i class="fa-brands fa-whatsapp" style="margin-right: 8px;"></i> Message on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Iframe (Optional visual enhancement) -->
+            <div
+                style="margin-top: 4rem; border-radius: 12px; overflow: hidden; box-shadow: var(--box-shadow); height: 400px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.4121703217277!2d77.4194098!3d28.6773121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf1b5b630e615%3A0xb35a09f7a77e2051!2sRiver%20Heights%20Phase%201%2C%20Raj%20Nagar%20Extension%2C%20Ghaziabad!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i> 
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="mailto:brainyogaclassroom@gmail.com" class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank" class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

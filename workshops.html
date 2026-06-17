@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops | Brain Yoga</title>
+    <meta name="description"
+        content="Brain Yoga is a premium learning center enhancing numerical thinking, language confidence, mindfulness, and creative expression.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Pipeline Card Hover */
+        .pipeline-card {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .pipeline-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(133, 91, 169, 0.15) !important;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 600px) {
+            #notify-form {
+                flex-direction: column;
+            }
+
+            #notify-form input {
+                border-radius: 25px !important;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+            #notify-form button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html" class="active">Workshops</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background-color: var(--color-purple-dark); padding: 5rem 0; text-align: center; position: relative; overflow: hidden;">
+        <!-- Background decorative blobs -->
+        <div
+            style="position: absolute; top: -50px; left: -50px; width: 200px; height: 200px; background: rgba(133, 91, 169, 0.2); filter: blur(50px); border-radius: 50%;">
+        </div>
+        <div
+            style="position: absolute; bottom: -50px; right: -50px; width: 250px; height: 250px; background: rgba(235, 225, 245, 0.15); filter: blur(60px); border-radius: 50%;">
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2;">
+            <span
+                style="background-color: var(--color-purple-primary); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; display: inline-block;">Exciting
+                Learning Ahead</span>
+            <h1
+                style="color: var(--color-white); font-size: 3.5rem; margin-bottom: 1rem; font-family: var(--font-heading);">
+                Brain Yoga Workshops</h1>
+            <p
+                style="color: var(--color-cream); font-size: 1.25rem; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                Specially curated short-term programs to spark curiosity, build confidence, and unlock new creative
+                skills in kids.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section" style="padding: 5rem 0; background-color: var(--color-cream);">
+        <div class="container">
+
+            <!-- Coming Soon Central Banner -->
+            <div
+                style="background-color: var(--color-white); border-radius: 24px; padding: 4rem 2rem; box-shadow: var(--box-shadow); text-align: center; margin-bottom: 4rem; position: relative; overflow: hidden; border: 1px solid rgba(133, 91, 169, 0.1);">
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--color-purple-gradient);">
+                </div>
+
+                <div
+                    style="font-size: 4.5rem; color: var(--color-purple-primary); margin-bottom: 1.5rem; animation: pulse 2s infinite ease-in-out;">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+
+                <h2
+                    style="font-size: 2.8rem; color: var(--color-purple-dark); margin-bottom: 1rem; font-family: var(--font-heading);">
+                    Something Amazing is Brewing!</h2>
+                <p
+                    style="font-size: 1.2rem; color: var(--color-text-light); max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.8;">
+                    We are currently designing hands-on workshops and seasonal bootcamps that bring together
+                    mathematics, creative arts, and mindfulness. Stay tuned!
+                </p>
+
+
+                <!-- Notify Me Form Card -->
+                <div
+                    style="max-width: 500px; margin: 0 auto; background: var(--color-cream); padding: 2rem; border-radius: 16px; border: 1px dashed var(--color-purple-primary);">
+                    <h3 style="font-size: 1.25rem; color: var(--color-purple-dark); margin-bottom: 0.5rem;">Be the First
+                        to Know!</h3>
+                    <p style="font-size: 0.95rem; color: var(--color-text-light); margin-bottom: 1.5rem;">Subscribe to
+                        get early-bird discounts and launch notifications.</p>
+
+                    <form id="notify-form" style="display: flex; gap: 10px;"
+                        action="https://formsubmit.co/brainyogaclassroom@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Workshop Notification Subscriber - Brain Yoga">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="email" name="Email_Subscription" placeholder="Enter your email address" required
+                            style="flex-grow: 1; padding: 12px 20px; border-radius: 50px; border: 2px solid var(--color-purple-light); outline: none; font-size: 0.95rem; transition: border-color 0.3s;"
+                            onfocus="this.style.borderColor='var(--color-purple-primary)'"
+                            onblur="this.style.borderColor='var(--color-purple-light)'">
+                        <button type="submit" class="btn btn-primary"
+                            style="padding: 12px 24px; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                            <i class="fa-solid fa-bell"></i> Notify Me
+                        </button>
+                    </form>
+                    <div id="form-message"
+                        style="margin-top: 1rem; font-size: 0.95rem; color: #48BB78; font-weight: 600; display: none;">
+                        <i class="fa-solid fa-circle-check"></i> Thank you! We will notify you as soon as workshops
+                        open.
+                    </div>
+                </div>
+            </div>
+
+            <!-- What's in the Pipeline Section -->
+            <div style="margin-top: 5rem;">
+                <h2
+                    style="font-size: 2.2rem; color: var(--color-purple-dark); text-align: center; margin-bottom: 1rem; font-family: var(--font-heading);">
+                    What's in the Pipeline</h2>
+                <p
+                    style="text-align: center; color: var(--color-text-light); max-width: 600px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                    A sneak peek of the exciting, high-value workshops we are currently building for your kids:</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+
+                    <!-- Card 1 -->
+                    <div class="pipeline-card"
+                        style="background-color: var(--color-white); padding: 2.5rem; border-radius: 16px; box-shadow: var(--box-shadow); transition: var(--transition); border-top: 5px solid #48BB78;">
+                        <div
+                            style="width: 50px; height: 50px; background-color: #E6FFFA; color: #319795; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem;">
+                            <i class="fa-solid fa-calculator"></i>
+                        </div>
+                        <span
+                            style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #319795; background-color: #E6FFFA; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px;">Math
+                            & Logic</span>
+                        <h3 style="font-size: 1.4rem; color: var(--color-purple-dark); margin-bottom: 1rem;">Abacus
+                            Speed-Math Champion</h3>
+                        <p
+                            style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                            A 5-day bootcamp designed to turn simple numbers into fun games. Kids will learn mental
+                            visualization techniques to calculate faster than a calculator.
+                        </p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-cream); padding-top: 1rem; font-size: 0.85rem; color: var(--color-text-light); font-weight: 500;">
+                            <span><i class="fa-regular fa-clock" style="margin-right: 5px;"></i> 5 Sessions</span>
+                            <span><i class="fa-solid fa-tags" style="margin-right: 5px;"></i> Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="pipeline-card"
+                        style="background-color: var(--color-white); padding: 2.5rem; border-radius: 16px; box-shadow: var(--box-shadow); transition: var(--transition); border-top: 5px solid #DD6B20;">
+                        <div
+                            style="width: 50px; height: 50px; background-color: #FFFAF0; color: #DD6B20; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem;">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                        </div>
+                        <span
+                            style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #DD6B20; background-color: #FFFAF0; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px;">Confidence</span>
+                        <h3 style="font-size: 1.4rem; color: var(--color-purple-dark); margin-bottom: 1rem;">Speak Up!
+                            Public Speaking Camp</h3>
+                        <p
+                            style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Help your child overcome stage fear and learn the art of clear, expressive articulation.
+                            Includes interactive debate games and storytelling rounds.
+                        </p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-cream); padding-top: 1rem; font-size: 0.85rem; color: var(--color-text-light); font-weight: 500;">
+                            <span><i class="fa-regular fa-clock" style="margin-right: 5px;"></i> 2 Weeks
+                                (Weekends)</span>
+                            <span><i class="fa-solid fa-tags" style="margin-right: 5px;"></i> Coming Soon</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="pipeline-card"
+                        style="background-color: var(--color-white); padding: 2.5rem; border-radius: 16px; box-shadow: var(--box-shadow); transition: var(--transition); border-top: 5px solid var(--color-purple-primary);">
+                        <div
+                            style="width: 50px; height: 50px; background-color: var(--color-purple-light); color: var(--color-purple-primary); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem;">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <span
+                            style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--color-purple-primary); background-color: var(--color-purple-light); padding: 4px 8px; border-radius: 4px; display: inline-block; margin-bottom: 1rem; letter-spacing: 0.5px;">Arts
+                            & Crafts</span>
+                        <h3 style="font-size: 1.4rem; color: var(--color-purple-dark); margin-bottom: 1rem;">Calligraphy
+                            & Creative Lettering</h3>
+                        <p
+                            style="color: var(--color-text-light); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                            Unlocking the beauty of written language. Kids will learn the rhythm, strokes, and shapes of
+                            modern script writing, transforming their handwriting into art.
+                        </p>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-cream); padding-top: 1rem; font-size: 0.85rem; color: var(--color-text-light); font-weight: 500;">
+                            <span><i class="fa-regular fa-clock" style="margin-right: 5px;"></i> 4 Sessions</span>
+                            <span><i class="fa-solid fa-tags" style="margin-right: 5px;"></i> Coming Soon</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Features of Workshops -->
+            <div
+                style="margin-top: 6rem; background-color: var(--color-white); border-radius: 20px; padding: 3rem; box-shadow: var(--box-shadow);">
+                <h3
+                    style="font-size: 1.8rem; color: var(--color-purple-dark); text-align: center; margin-bottom: 2.5rem; font-family: var(--font-heading);">
+                    What to Expect in Our Workshops</h3>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="color: var(--color-purple-primary); font-size: 2.2rem; margin-bottom: 1rem;"><i
+                                class="fa-solid fa-puzzle-piece"></i></div>
+                        <h4
+                            style="font-size: 1.15rem; color: var(--color-purple-dark); margin-bottom: 0.5rem; font-weight: 700;">
+                            100% Practical</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-light);">No heavy theories or boring
+                            lectures. Kids learn by doing, creating, and playing.</p>
+                    </div>
+                    <div>
+                        <div style="color: var(--color-purple-primary); font-size: 2.2rem; margin-bottom: 1rem;"><i
+                                class="fa-solid fa-graduation-cap"></i></div>
+                        <h4
+                            style="font-size: 1.15rem; color: var(--color-purple-dark); margin-bottom: 0.5rem; font-weight: 700;">
+                            Certified Learning</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-light);">Every participant receives a
+                            Certificate of Completion to celebrate their growth.</p>
+                    </div>
+                    <div>
+                        <div style="color: var(--color-purple-primary); font-size: 2.2rem; margin-bottom: 1rem;"><i
+                                class="fa-solid fa-user-group"></i></div>
+                        <h4
+                            style="font-size: 1.15rem; color: var(--color-purple-dark); margin-bottom: 0.5rem; font-weight: 700;">
+                            Interactive Groups</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-light);">Small batches encourage peer
+                            interaction, collaboration, and friendship.</p>
+                    </div>
+                    <div>
+                        <div style="color: var(--color-purple-primary); font-size: 2.2rem; margin-bottom: 1rem;"><i
+                                class="fa-solid fa-leaf"></i></div>
+                        <h4
+                            style="font-size: 1.15rem; color: var(--color-purple-dark); margin-bottom: 0.5rem; font-weight: 700;">
+                            Calm Environment</h4>
+                        <p style="font-size: 0.9rem; color: var(--color-text-light);">A dedicated screen-free zone
+                            focused on deep learning, patience, and concentration.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i> 
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="mailto:brainyogaclassroom@gmail.com" class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank" class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('notify-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = form.querySelector('[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Check if browsing via file:// protocol
+            if (window.location.protocol === 'file:') {
+                alert("FormSubmit does not support local HTML files (file:// protocol).\n\nPlease open this page using a local web server (such as VS Code Live Server or by running 'python3 -m http.server 8000' in the folder) or host it on GitHub Pages/live server to test the form submission.");
+                return;
+            }
+
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+            submitBtn.disabled = true;
+            
+            const formData = new FormData(form);
+            
+            fetch("https://formsubmit.co/ajax/brainyogaclassroom@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                if (data.success === "true") {
+                    form.style.display = 'none';
+                    document.getElementById('form-message').style.display = 'block';
+                } else {
+                    if (data.message && data.message.includes('activate')) {
+                        alert("FormSubmit requires activation. A confirmation email has been sent to brainyogaclassroom@gmail.com. Please log in to that email account and click 'Activate Form' to start receiving submissions.");
+                    } else {
+                        alert("Something went wrong: " + (data.message || "Please try again later."));
+                    }
+                }
+            })
+            .catch(error => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                console.error("Error submitting form:", error);
+                alert("Submission failed. Please check your internet connection and try again.");
+            });
+        });
+    </script>
+
+</body>
+
+</html>

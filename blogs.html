@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs | Brain Yoga</title>
+    <meta name="description"
+        content="Read the latest articles from Brain Yoga on how to improve memory, concentration, english, and maths skills for children.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .blog-card {
+            background-color: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            background-color: var(--color-purple-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--color-purple-dark);
+        }
+
+        .blog-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-title {
+            color: var(--color-purple-dark);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .read-more-btn {
+            background-color: transparent;
+            color: var(--color-purple-primary);
+            border: 2px solid var(--color-purple-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .read-more-btn:hover {
+            background-color: var(--color-purple-primary);
+            color: var(--color-white);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: var(--color-white);
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            color: #aaa;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--color-purple-dark);
+        }
+
+        .modal-body {
+            color: #4a4a4a;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .modal-body h2 {
+            color: var(--color-purple-dark);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            line-height: 1.3;
+        }
+
+
+
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body hr {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: 2rem 0;
+        }
+
+
+
+
+
+        .modal-body h3 {
+            color: var(--color-purple-dark);
+            margin-top: 2.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .modal-body h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--color-purple-gradient);
+            border-radius: 2px;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .modal-body li::before {
+            content: '🟣';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 0.8rem;
+        }
+
+        .highlight-brand {
+            font-weight: 800;
+            color: var(--color-purple-dark);
+            background: linear-gradient(120deg, var(--color-purple-light) 0%, transparent 100%);
+            padding: 2px 6px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .modal-body p {
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.2px;
+        }
+
+        /* Contact Box in Modals */
+        .contact-box {
+            background: linear-gradient(135deg, var(--color-purple-light) 0%, #FAF6FC 100%);
+            border-left: 5px solid var(--color-purple-primary);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(133, 91, 169, 0.08);
+            text-align: left;
+        }
+
+        .contact-box p {
+            margin-bottom: 0.8rem !important;
+            font-weight: 700;
+            color: var(--color-purple-dark) !important;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .contact-box i {
+            color: var(--color-purple-primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; text-decoration: none;">
+                <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 140px; object-fit: contain;">
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="workshops.html">Workshops</a></li>
+                    <li><a href="blogs.html" class="active">Blogs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header"
+        style="background-color: var(--color-purple-dark); padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="color: var(--color-white); font-size: 3rem; margin-bottom: 1rem;">OUR BLOGS</h1>
+            <p style="color: var(--color-cream); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Insights, tips,
+                and guides for your child's complete brain development.</p>
+        </div>
+    </section><!-- Blogs Section -->
+    <section class="section" style="padding: 4rem 0; background-color: var(--color-cream);">
+        <div class="container">
+
+            <div class="blog-grid">
+
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fa-solid fa-brain"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How to improve memory in children</h3>
+                        <p class="blog-excerpt">Here are some simple easy ways to improve memory and recall in children
+                            without pressure.</p>
+                        <button class="read-more-btn" onclick="openModal('modal1')">Read Article</button>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How to improve concentration in children</h3>
+                        <p class="blog-excerpt">Here are some simple easy ways to improve concentration and focus on
+                            children at home.</p>
+                        <button class="read-more-btn" onclick="openModal('modal2')">Read Article</button>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fa-solid fa-calculator"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How to remove fear of maths in children</h3>
+                        <p class="blog-excerpt">Here are some simple ways to help your child overcome fear of maths and
+                            build strong calculation skills.</p>
+                        <button class="read-more-btn" onclick="openModal('modal3')">Read Article</button>
+                    </div>
+                </div>
+
+                <!-- Blog 4 -->
+                <div class="blog-card">
+                    <div class="blog-img"><i class="fa-solid fa-comments"></i></div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">How to teach English to kids</h3>
+                        <p class="blog-excerpt">Here are some simple easy tricks through which you could teach English
+                            to your kids.</p>
+                        <button class="read-more-btn" onclick="openModal('modal4')">Read Article</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modals -->
+
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
+            <div class="modal-body">
+                <h2>Turn Weak Memory Into Strong Recall With The Right Learning Methods For Your Child</h2>
+                <p>Does your child study but forget everything the next day? Do they revise again and again but still
+                    struggle to recall during tests? Do you feel they understand concepts but cannot remember them at
+                    the right time?</p>
+                <p>If yes, this is not a learning issue. This is a memory training issue. Many parents today are
+                    searching for ways to improve memory in children because traditional study methods are not enough
+                    anymore.</p>
+                <p>Memory is not about reading more. It is about training the brain to store and recall information
+                    correctly.</p>
+                <h3>Why do children forget what they study?</h3>
+                <p>Children do not forget because they are careless. They forget because the brain is not trained to
+                    retain information.</p>
+                <ul>
+                    <li>You may notice:</li>
+                    <li>They revise but cannot recall during exams</li>
+                    <li>They forget formulas or concepts quickly</li>
+                    <li>They need repeated reminders</li>
+                    <li>They lose confidence due to poor recall</li>
+                </ul>
+                <p>This is why parents are now looking for memory improvement classes for kids that focus on retention,
+                    not just studying.</p>
+                <h3>Is repeated studying enough to improve memory?</h3>
+                <p>Reading the same thing again and again does not guarantee memory improvement. Without the right
+                    techniques, the brain does not store information effectively.</p>
+                <ul>
+                    <li>Children need structured methods like:</li>
+                    <li>Visual learning</li>
+                    <li>Pattern recognition</li>
+                    <li>Repetition with understanding</li>
+                    <li>Practical application</li>
+                </ul>
+                <p>That is where brain development classes for kids help by training how the brain processes
+                    information.</p>
+                <h3>What problems does weak memory create?</h3>
+                <p>If memory is weak, it affects more than just marks.</p>
+                <ul>
+                    <li>Poor performance in exams</li>
+                    <li>Lack of confidence</li>
+                    <li>Fear of studies</li>
+                    <li>Difficulty in understanding advanced concepts</li>
+                    <li>Dependence on constant revision</li>
+                </ul>
+                <p>This is why improving memory early becomes important for long term learning.</p>
+                <h3>Can memory really be improved naturally?</h3>
+                <p>Yes, but only when the brain is trained in the right way.</p>
+                <ul>
+                    <li>Children improve memory when they:</li>
+                    <li>Practise structured learning techniques</li>
+                    <li>Engage in brain activating activities</li>
+                    <li>Build connections instead of memorising blindly</li>
+                    <li>Get consistent guidance</li>
+                </ul>
+                <p>That is why many parents now choose memory development classes for children instead of only relying
+                    on school learning.</p>
+                <h3>Why do some children remember faster than others?</h3>
+                <p>The difference is not intelligence. It is training.</p>
+                <p>Children who practise calculation based activities, pattern recognition, and visual learning develop
+                    stronger memory naturally.</p>
+                <p>This is why programs like <strong>Abacus</strong> and <strong>Vedic Maths</strong> are considered
+                    effective fast learning techniques for kids, as they train both memory and thinking speed together.
+                </p>
+                <h3>This is where most parents feel stuck</h3>
+                <p>Even after knowing the problem, parents often try random solutions.</p>
+                <ul>
+                    <li>More tuition</li>
+                    <li>More revision</li>
+                    <li>More pressure</li>
+                </ul>
+                <p>But none of these fix the core issue.</p>
+                <p>What actually works is structured brain training.</p>
+                <h3>How can <span class="highlight-brand">Brain Yoga Classes</span> improve your child’s memory?</h3>
+                <p>At <span class="highlight-brand">Brain Yoga Classes</span>, we do not focus on memorising content. We
+                    focus on training the brain to remember.</p>
+                <ul>
+                    <li>Our approach includes:</li>
+                    <li><strong>Abacus</strong> training to strengthen memory and calculation speed</li>
+                    <li><strong>Vedic Maths</strong> to improve retention and faster recall</li>
+                    <li>Activity based learning to improve understanding</li>
+                    <li>Regular practice sessions to build consistency</li>
+                    <li>Step by step guidance for every child</li>
+                </ul>
+                <p>These methods help children store information better and recall it with confidence.</p>
+                <h3>What makes <span class="highlight-brand">Brain Yoga</span> different from other coaching centres?
+                </h3>
+                <p>Most coaching centres focus on completing syllabus and giving homework.</p>
+                <p>At <span class="highlight-brand">Brain Yoga Classes</span>, we focus on how your child learns.</p>
+                <ul>
+                    <li>We train memory along with understanding</li>
+                    <li>We use practical and activity based methods</li>
+                    <li>We focus on long term improvement</li>
+                    <li>We build confidence through results</li>
+                </ul>
+                <p>This is why parents searching for the best memory improvement classes near me prefer structured
+                    programs like ours.</p>
+                <h3>So what do we conclude?</h3>
+                <p>Weak memory is not permanent. It can be improved with the right methods and consistent practice.</p>
+                <p>If your child is forgetting what they study, the solution is not more pressure. The solution is
+                    better training.</p>
+                <p>If you are looking for memory improvement classes near Rajnagar Extension where your child can
+                    improve recall, confidence, and learning ability, <span class="highlight-brand">Brain Yoga
+                        Classes</span> offer a structured approach that delivers real results.</p>
+                <ul>
+                    <li>Here are the details on how you can contact <span class="highlight-brand">Brain Yoga
+                            Classes</span>:</li>
+                </ul>
+                <div class="contact-box">
+                    <p><i class="fa-solid fa-location-dot"></i> <span><strong>Address:</strong> 3BA 610, 6th Floor, Tower 3 River Heights Society, River Heights Rd, Sehani Khurd, Raj Nagar Extension, Ghaziabad, Uttar Pradesh - 201003, India</span></p>
+                    <p><i class="fa-solid fa-phone-volume"></i> <span><strong>Phone:</strong> +91 98184 23645</span></p>
+                </div>
+                <p>Help your child remember better so they can perform better.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
+            <div class="modal-body">
+                <h2>Turn Your Child’s Low Focus Into Sharp Concentration With The Right Training</h2>
+                <p>Is your child unable to sit in one place for long? Do they start studying but get distracted within
+                    minutes? Do they forget what they just learnt or lose interest halfway?</p>
+                <p>If you have been noticing these signs, you are not alone. Many parents today are facing the same
+                    issue and constantly searching for ways to improve concentration in children without putting
+                    pressure on them.</p>
+                <p>The truth is simple. Focus is not natural. It is trained. And when that training is missing, even a
+                    smart child struggles to stay attentive.</p>
+                <h3>Why do children struggle with focus today?</h3>
+                <p>The environment around children has completely changed. Fast moving content, mobile usage, and
+                    constant stimulation have reduced their attention span.</p>
+                <ul>
+                    <li>You may notice:</li>
+                    <li>Your child gets distracted easily during studies</li>
+                    <li>They avoid sitting for long study sessions</li>
+                    <li>They forget things quickly</li>
+                    <li>They lose interest in tasks that need patience</li>
+                </ul>
+                <p>This is exactly why parents today are actively looking for concentration improvement classes for kids
+                    that focus on training the brain, not just completing homework.</p>
+                <h3>Is it really a problem or just a habit?</h3>
+                <p>Many parents think their child is careless. In reality, it is mostly a habit issue.</p>
+                <p>When the brain is used to quick entertainment, it finds it difficult to stay with slow learning tasks
+                    like reading or writing. Over time, this becomes a pattern.</p>
+                <p>This is where structured methods like brain development classes for kids help in rebuilding attention
+                    span step by step.</p>
+                <h3>What problems can low concentration create?</h3>
+                <p>If ignored, low focus starts affecting multiple areas of a child’s growth.</p>
+                <ul>
+                    <li>Weak academic performance</li>
+                    <li>Lack of confidence</li>
+                    <li>Difficulty in understanding concepts</li>
+                    <li>Poor memory retention</li>
+                    <li>Avoidance of studies</li>
+                </ul>
+                <p>This is not just about marks. It affects how a child learns and thinks in daily life.</p>
+                <h3>So what actually improves concentration?</h3>
+                <p>The solution is not forcing longer study hours. The solution is training the brain.</p>
+                <ul>
+                    <li>Children improve when they:</li>
+                    <li>Follow a structured routine</li>
+                    <li>Practise focused activities daily</li>
+                    <li>Engage in thinking based tasks</li>
+                    <li>Get proper guidance and consistency</li>
+                </ul>
+                <p>That is why many parents now prefer focus improvement classes for children instead of regular
+                    tuition, because the root problem is attention, not just studies.</p>
+                <h3>This is where most parents get stuck</h3>
+                <p>Even after understanding the problem, parents often don’t know what to do next.</p>
+                <p>Should they reduce screen time?</p>
+                <p>Should they force more study hours?</p>
+                <p>Should they change school methods?</p>
+                <p>Without the right approach, these efforts do not give results.</p>
+                <p>This is exactly where structured training makes the difference.</p>
+                <h3>How can <span class="highlight-brand">Brain Yoga Classes</span> help your child?</h3>
+                <p>At <span class="highlight-brand">Brain Yoga Classes</span>, the focus is not just on studies, but on
+                    overall brain development.</p>
+                <p>Instead of forcing children to sit and study, we train their mind to naturally stay focused.</p>
+                <ul>
+                    <li>We work through practical and activity based methods like:</li>
+                    <li><strong>Abacus</strong> to improve concentration and calculation speed</li>
+                    <li><strong>Vedic Maths</strong> to build faster thinking and accuracy</li>
+                    <li>Handwriting improvement to increase patience and control</li>
+                    <li>Phonics and language development to strengthen understanding</li>
+                    <li>Personality development activities to build confidence</li>
+                </ul>
+                <p>These are not random classes. They are structured programs designed to improve attention span,
+                    memory, and thinking ability together.</p>
+                <h3>What makes <span class="highlight-brand">Brain Yoga</span> different from other centres?</h3>
+                <p>Most tuition centres focus only on completing syllabus. The child studies, memorises, and moves on.
+                </p>
+                <p>At <span class="highlight-brand">Brain Yoga Classes</span>, the focus is different.</p>
+                <ul>
+                    <li>We train how the child thinks, not just what they study</li>
+                    <li>We focus on long term improvement, not short term marks</li>
+                    <li>We give attention to each child’s learning pattern</li>
+                    <li>We use practical methods instead of only book learning</li>
+                </ul>
+                <p>This is why parents searching for the best brain development classes near me prefer structured
+                    programs like ours.</p>
+                <h3>So what do we conclude?</h3>
+                <p>Low concentration is not a permanent problem. It is a skill that can be improved with the right
+                    training.</p>
+                <p>If your child is struggling to focus, the solution is not pressure. The solution is guided practice.
+                </p>
+                <p>If you are looking for concentration improvement classes near Rajnagar Extension or a place where
+                    your child can build real focus and confidence, <span class="highlight-brand">Brain Yoga
+                        Classes</span> provide a structured and practical approach that delivers visible results.</p>
+                <ul>
+                    <li>Here are the details on how you can contact <span class="highlight-brand">Brain Yoga
+                            Classes</span>:</li>
+                </ul>
+                <div class="contact-box">
+                    <p><i class="fa-solid fa-location-dot"></i> <span><strong>Address:</strong> 3BA 610, 6th Floor, Tower 3 River Heights Society, River Heights Rd, Sehani Khurd, Raj Nagar Extension, Ghaziabad, Uttar Pradesh - 201003, India</span></p>
+                    <p><i class="fa-solid fa-phone-volume"></i> <span><strong>Phone:</strong> +91 98184 23645</span></p>
+                </div>
+                <p>Help your child build strong focus today so they can perform better in every area of life.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal3')">&times;</span>
+            <div class="modal-body">
+                <h2>Make Numbers Easy And Build Strong Thinking Skills In Your Child With The Right Maths Approach</h2>
+                <p>Does your child avoid maths practice or take too long to solve even simple sums? Do they get stuck in
+                    steps and lose interest halfway? Do you notice hesitation the moment numbers get bigger?</p>
+                <p>This is more common than it looks. Parents across age groups are searching for ways to remove fear of
+                    maths in children because the subject often feels heavy instead of logical.</p>
+                <p>Maths is not difficult by nature. It becomes difficult when the method feels long, confusing, or
+                    rushed.</p>
+                <h3>Why do children start feeling uncomfortable with maths?</h3>
+                <p>This usually begins when the child stops understanding the process and starts memorising steps.</p>
+                <ul>
+                    <li>You may notice:</li>
+                    <li>They rely on counting or fingers for basic sums</li>
+                    <li>They take too much time for calculations</li>
+                    <li>They avoid attempting new types of questions</li>
+                    <li>They depend on help instead of trying first</li>
+                </ul>
+                <p>This is why parents often look for maths improvement classes for children that focus on clarity
+                    rather than just practice.</p>
+                <h3>What actually makes maths feel difficult?</h3>
+                <p>It is not the numbers. It is the method.</p>
+                <ul>
+                    <li>When learning is based on long steps:</li>
+                    <li>The brain feels overloaded</li>
+                    <li>Small mistakes create bigger errors</li>
+                    <li>Speed reduces</li>
+                    <li>Interest drops</li>
+                </ul>
+                <p>This is where approaches like vedic maths classes for kids help by simplifying calculations and
+                    reducing unnecessary steps.</p>
+                <h3>What changes when the approach becomes simple?</h3>
+                <p>The shift is visible when the child starts understanding patterns instead of memorising methods.</p>
+                <ul>
+                    <li>Calculations become faster</li>
+                    <li>Accuracy improves naturally</li>
+                    <li>The child starts attempting questions independently</li>
+                    <li>Bigger problems no longer feel intimidating</li>
+                </ul>
+                <p>This is why many parents choose abacus classes for kids as a foundation for strong number sense and
+                    quick calculation.</p>
+                <h3>Can maths become a strong area for your child?</h3>
+                <p>Yes, but it requires the right training from the base level.</p>
+                <ul>
+                    <li>Children improve when:</li>
+                    <li>They learn shortcuts and patterns</li>
+                    <li>They practise mental calculation regularly</li>
+                    <li>They build number sense step by step</li>
+                    <li>They are allowed to learn at their own pace</li>
+                </ul>
+                <p>This is what builds a sharp and active mind, not just better marks.</p>
+                <h3>What does a strong maths foundation actually build?</h3>
+                <p>Maths is not just about solving sums. It develops multiple skills together.</p>
+                <ul>
+                    <li>Faster thinking ability</li>
+                    <li>Strong memory retention</li>
+                    <li>Better focus during tasks</li>
+                    <li>Higher patience level</li>
+                    <li>Logical decision making</li>
+                </ul>
+                <p>That is why parents today search for best maths classes near me that focus on overall brain
+                    development along with academics.</p>
+                <h3>How does <span class="highlight-brand">Brain Yoga Classes</span> change the way your child learns
+                    maths?</h3>
+                <p>At <span class="highlight-brand">Brain Yoga Classes</span>, the focus is not on pushing children
+                    through long methods. The aim is to make numbers feel simple and manageable.</p>
+                <ul>
+                    <li>Children are trained through:</li>
+                    <li><strong>Abacus</strong> practice that improves mental calculation speed</li>
+                    <li><strong>Vedic Maths</strong> techniques that reduce steps and increase accuracy</li>
+                    <li>Regular exercises that sharpen memory and attention</li>
+                    <li>Guided sessions that match the child’s learning pace</li>
+                </ul>
+                <p>Here, children do not just solve questions. They start understanding how numbers behave.</p>
+                <h3>What makes this approach stand out?</h3>
+                <p>The learning experience itself is different.</p>
+                <ul>
+                    <li>Children move from counting to mental calculation</li>
+                    <li>Speed improves without pressure</li>
+                    <li>Mistakes reduce because understanding is clear</li>
+                    <li>Learning becomes smoother and more natural</li>
+                </ul>
+                <p>This is why parents looking for maths learning classes near Rajnagar Extension prefer structured
+                    programs that focus on thinking skills.</p>
+                <h3>So what do we conclude?</h3>
+                <p>Maths becomes easy when the method becomes simple. The goal is not to make children memorise more,
+                    but to help them think better.</p>
+                <p>If your child is finding maths difficult, the solution is not extra pressure. The solution is the
+                    right training that builds clarity, speed, and strong basics.</p>
+                <p>If you are looking for math classes near Rajnagar where your child can improve calculation speed,
+                    sharpen memory, and build a strong foundation, <span class="highlight-brand">Brain Yoga
+                        Classes</span> provide a structured and practical learning approach.</p>
+                <p>Now thinking where to find <span class="highlight-brand">Brain Yoga Classes</span>? Well we already
+                    did the job for you just scroll down and you'll find its details below!</p>
+                <div class="contact-box">
+                    <p><i class="fa-solid fa-location-dot"></i> <span><strong>Address:</strong> 3BA 610, 6th Floor, Tower 3 River Heights Society, River Heights Rd, Sehani Khurd, Raj Nagar Extension, Ghaziabad, Uttar Pradesh - 201003, India</span></p>
+                    <p><i class="fa-solid fa-phone-volume"></i> <span><strong>Phone:</strong> +91 98184 23645</span></p>
+                </div>
+                <p>What's Next? Just give your child the ability to handle numbers with ease and think faster in every
+                    situation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('modal4')">&times;</span>
+            <div class="modal-body">
+                <h2>Bridge The Gap Between Learning And Speaking With The Best Spoken English Classes For Your Child
+                </h2>
+                <p>You’ve probably seen this at home. Your child understands English, follows instructions, and manages
+                    written work well. But when it comes to speaking, they hesitate or avoid it. This creates confusion
+                    because the learning looks complete but the result is not visible in communication. The gap is not
+                    about intelligence or effort. It is about how the language is being used.</p>
+                <p>Understanding a language and speaking it are not the same skill. One grows through reading and
+                    listening, while the other needs regular use in real situations. If speaking is not practised, the
+                    child never becomes comfortable with it, no matter how well they understand English.</p>
+                <h3>Was my child ever taught how to actually speak English?</h3>
+                <p>Most children are taught English as a subject. They learn meanings, grammar, and how to write
+                    answers. What they do not get is regular speaking practice. Because of this, they know the language
+                    but do not know how to use it in conversation.</p>
+                <p>Over time, this turns into a habit. The child waits, thinks, and then avoids speaking because there
+                    is no natural flow. This is why many parents start searching for spoken English classes for kids or
+                    communication skills classes for students when they notice this gap.</p>
+                <h3>Why does my child think so much before speaking?</h3>
+                <p>When a child tries to speak, they are not relaxed. They are trying to choose the right words, form
+                    correct sentences, and avoid mistakes at the same time. This creates pressure and slows them down.
+                </p>
+                <ul>
+                    <li>You may notice:</li>
+                    <li>Long pauses before speaking</li>
+                    <li>Mixing languages to stay comfortable</li>
+                    <li>Stopping midway while speaking</li>
+                    <li>Avoiding answers unless asked again</li>
+                </ul>
+                <p>This is not a knowledge problem. It is a comfort problem that comes from lack of practice.</p>
+                <h3>Is fear of making mistakes holding my child back?</h3>
+                <p>Children are very aware of reactions. If they feel they might be corrected harshly or laughed at,
+                    they stop trying. Even one bad experience can reduce their willingness to speak again.</p>
+                <p>Because of this, they choose silence instead of risk. This slowly affects confidence and makes
+                    English feel difficult, even when the child understands it well.</p>
+                <h3>Why is regular speaking practice missing?</h3>
+                <p>Reading and writing happen daily in school. Speaking does not. And speaking is a skill that improves
+                    only with use.</p>
+                <ul>
+                    <li>For real improvement, children need:</li>
+                    <li>Daily conversation in simple English</li>
+                    <li>Opportunities to express their thoughts</li>
+                    <li>Repetition in real situations</li>
+                    <li>Guidance while speaking</li>
+                </ul>
+                <p>Without this your English remains limited to only books.</p>
+                <h3>Does the environment really make a difference?</h3>
+                <p>Yes, it does. If a child feels pressure, they will not speak freely. If they feel comfortable, they
+                    will try more.</p>
+                <ul>
+                    <li>A supportive environment helps the child:</li>
+                    <li>Speak without hesitation</li>
+                    <li>Make mistakes and improve</li>
+                    <li>Build confidence step by step</li>
+                </ul>
+                <p>This is why many parents look for the best spoken English classes near me or confidence building
+                    classes for children where learning is practical and not stressful.</p>
+                <h3>So what actually helps a child start speaking?</h3>
+                <p>The focus should be on comfort, not perfection. Children improve when they start small and practise
+                    regularly.</p>
+                <ul>
+                    <li>A simple approach works:</li>
+                    <li>Start with short and simple sentences</li>
+                    <li>Use daily life topics</li>
+                    <li>Encourage speaking without pressure</li>
+                    <li>Practise consistently</li>
+                </ul>
+                <p>When speaking becomes a habit, confidence follows naturally.</p>
+                <h3>So what do we conclude?</h3>
+                <p>The child does not lack knowledge. They lack speaking practice. Once they get the right environment
+                    and regular use, their communication improves on its own.</p>
+                <p>If you are someone who has been searching for spoken English classes for kids or communication skills
+                    classes near Rajnagar Extension, then structured guidance can make a real difference. At <span
+                        class="highlight-brand">Brain Yoga Classes</span>, children are trained through regular speaking
+                    practice, simple activities, and a comfortable learning environment where they can improve without
+                    hesitation.</p>
+                <ul>
+                    <li>Here are the details on how you can contact <span class="highlight-brand">Brain Yoga
+                            Classes</span>:</li>
+                </ul>
+                <div class="contact-box">
+                    <p><i class="fa-solid fa-location-dot"></i> <span><strong>Address:</strong> 3BA 610, 6th Floor, Tower 3 River Heights Society, River Heights Rd, Sehani Khurd, Raj Nagar Extension, Ghaziabad, Uttar Pradesh - 201003, India</span></p>
+                    <p><i class="fa-solid fa-phone-volume"></i> <span><strong>Phone:</strong> +91 98184 23645</span></p>
+                </div>
+                <p>Give your child the confidence to express, not just understand. Start early, and the difference will
+                    be visible.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 15px;">
+                        <div style="background: white; padding: 8px 12px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center;">
+                            <img src="images/New logo.jpg" alt="Brain Yoga" style="height: 50px; object-fit: contain;">
+                        </div>
+                    </a>
+                    <p style="font-size: 0.95rem; color: #A0AEC0; margin-top: 10px; line-height: 1.6;">
+                        <strong>Brain Yoga Classes</strong> is a customized open learning space designed for every child and adult to strengthen thinking, academic foundations, and confidence.
+                    </p>
+                    <div class="footer-socials" style="display: flex; gap: 12px; margin-top: 15px;">
+                        <a href="https://www.instagram.com/the.brainyoga?igsh=MTBhbWpsMm92dXhmaQ==" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1BLQqWdBDm/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/company/brain-yoga-classroom/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/+919818423645" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                    <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 12px; max-width: 220px;">
+                        <a href="Brochure.pdf" target="_blank" class="footer-btn footer-btn-white">
+                            <i class="fa-solid fa-file-pdf" style="font-size: 1.1rem;"></i> Brochure
+                        </a>
+                        <a href="contact.html" class="footer-btn footer-btn-purple">
+                            <i class="fa-solid fa-calendar-check" style="font-size: 1.1rem;"></i> Book Demo
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="workshops.html">Workshops</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-phone" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="tel:+919818423645" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-brands fa-whatsapp" style="color: #25D366; margin-top: 3px;"></i> 
+                            <a href="https://wa.me/+919818423645" target="_blank" class="footer-contact-link">+91 98184 23645</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 8px; color: #A0AEC0; font-size: 0.9rem;">
+                            <i class="fa-solid fa-envelope" style="color: #FFFFFF; margin-top: 3px;"></i> 
+                            <a href="mailto:brainyogaclassroom@gmail.com" class="footer-contact-link">brainyogaclassroom@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Our Center</h4>
+                    <p style="font-size: 0.9rem; color: #A0AEC0; line-height: 1.5; margin-bottom: 12px;">
+                        3BA 610, 6th Floor, Tower 3,<br>
+                        River Heights Society, River Heights Rd, Sehani Khurd,<br>
+                        Raj Nagar Extension, Ghaziabad,<br>
+                        Uttar Pradesh - 201003, India
+                    </p>
+                    <a href="https://maps.app.goo.gl/bH7ZdZABk1bosk6B9?g_st=ac" target="_blank" class="footer-maps-link">
+                        <i class="fa-solid fa-map-location-dot" style="color: #FFFFFF;"></i> <strong>Open Google Maps</strong>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Brain Yoga</strong>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling under modal
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function (event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+# Virtual Environments
+venv/
+docx_venv/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local configuration / IDE files
+.vscode/
+.idea/
